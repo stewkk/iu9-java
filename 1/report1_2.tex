@@ -1,0 +1,173 @@
+\documentclass[12pt,a4paper,oneside,titlepage]{article}
+
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\defaultfontfeatures{Ligatures=TeX}
+\usepackage{polyglossia}
+\usepackage[autostyle=true]{csquotes}
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+
+\usepackage{listings}
+\usepackage{graphicx}
+\graphicspath{ {./} }
+
+\lstset{
+  columns=fullflexible,
+  frame=single,
+  breaklines=true,
+}
+
+\begin{document}
+
+% НАЧАЛО ТИТУЛЬНОГО ЛИСТА
+\begin{center}
+  \hfill \break
+  \textbf{
+    \footnotesize{Министерство науки и высшего образования Российской Федерации}\\
+    \hfill \break
+    \footnotesize{Федеральное государственное бюджетное образовательное учреждение высшего образования}\\
+    \small{«МОСКОВСКИЙ ГОСУДАРСТВЕННЫЙ ТЕХНИЧЕСКИЙ УНИВЕРСИТЕТ имени Н.Э.БАУМАНА\\(национальный исследовательский университет)»}}\\
+\end{center}
+\hfill \break
+\normalsize{Факультет: Информатика и системы управления}\\
+\hfill \break
+\normalsize{Кафедра: Теоретическая информатика и компьютерные технологии}\\
+\hfill\break
+\begin{center}
+  \textbf{\large{Лабораторная работа №1.2}}\\
+  \large{Создание проекта Point\\
+    по дисциплине «Языки и методы программирования»}\\
+\end{center}
+\hfill \break
+\hfill \break
+\hfill \break
+\begin{flushright}
+  \normalsize{
+    Выполнил\\
+    студент группы ИУ9-21Б\\
+    Старовойтов А.И.\\
+  }
+  \normalsize{
+    Проверил\\
+    Посевин Д.П.
+  }
+\end{flushright}
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+
+\begin{center} Москва, 2022 \end{center}
+\thispagestyle{empty} % выключаем отображение номера для этой страницы
+% КОНЕЦ ТИТУЛЬНОГО ЛИСТА
+
+\author{Старовойтов Александр}
+
+\section{Цель работы}
+
+Разобраться с совместимостью классов в Java на примере задачи Point
+
+\section{Условия задачи}
+
+\begin{itemize}
+  \item
+        Запустить новый проект
+  \item
+        Создать классы
+  \item
+        Запустить и проверить работоспособность
+\end{itemize}
+
+\section{Point}
+
+\subsection{класс Main}
+\begin{lstlisting}[language=java]
+import com.company.Point;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Point PointA = new Point("A");
+        System.out.println("Имя точки:"+PointA.getName());
+        PointA.setCoord(1.0,1.0,1.0);
+        System.out.println("Длинна радиус-вектора:"+PointA.getR());
+
+        //PointA.n=10;
+        PointA.val=100;
+        System.out.println("ОбъемА:"+Point.val);
+
+        Point PointB = new Point("B");
+        System.out.println("ОбъемB:"+Point.val);
+
+        System.out.println("Расстояние AB:"+Point.getDist(PointA, PointB));
+    }
+}
+\end{lstlisting}
+
+\subsection{класс Point}
+\begin{lstlisting}
+package com.company;
+
+import static java.lang.Math.*;
+
+public class Point
+{
+
+    private String name;
+    private double x;
+    private double y;
+    private double z;
+    private static int n;
+    public static int val;
+
+    public Point(String argName)
+    {
+        System.out.println("Запущен конструктор объекта com.company.Point");
+        this.name = argName;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setCoord(double varX, double varY, double varZ)
+    {
+        this.x=varX;
+        this.y=varY;
+        this.z=varZ;
+    }
+
+    public double getR()
+    {
+        return pow(pow(this.x,2)+pow(this.y,2)+pow(this.z,2),0.5);
+    }
+
+    public static double getDist(Point a, Point b) {
+        Point PointC = new Point("C");
+        PointC.setCoord(a.x - b.x, a.y - b.y, a.z - b.z);
+        return PointC.getR();
+    }
+}
+\end{lstlisting}
+
+\subsection{Вывод программы}
+\begin{verbatim}
+Запущен конструктор объекта com.company.Point
+Имя точки:A
+Длинна радиус-вектора:1.7320508075688772
+ОбъемА:100
+Запущен конструктор объекта com.company.Point
+ОбъемB:100
+Запущен конструктор объекта com.company.Point
+Расстояние AB:1.7320508075688772
+\end{verbatim}
+
+\end{document}
