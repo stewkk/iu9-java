@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-02-19 Sat 23:59 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Языки и методы программирования. Лекции</title>
+<meta name="author" content="Starovoytov Alexandr" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Языки и методы программирования. Лекции</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orge5abf83">1. 1 лекция Понятия класса, объекта. Инкапсуляция.</a>
+<ul>
+<li><a href="#orgf542aa6">1.1. Определения</a></li>
+<li><a href="#orgd102c2b">1.2. Структура публичного класса</a>
+<ul>
+<li><a href="#org0c4297d">1.2.1. Примеры</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org96a787e">2. 2 лекция Статические методы, статические поля.</a>
+<ul>
+<li><a href="#org394c2ff">2.1. Определения статического поля, экземлярного метода</a></li>
+<li><a href="#org3a63166">2.2. Виды модификаторов</a></li>
+<li><a href="#orgaf96fac">2.3. Перегрузка методов</a></li>
+<li><a href="#org6cca536">2.4. Статические методы</a></li>
+<li><a href="#orgd987f2f">2.5. Статические блоки</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge5abf83" class="outline-2">
+<h2 id="orge5abf83"><span class="section-number-2">1.</span> 1 лекция Понятия класса, объекта. Инкапсуляция.</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgf542aa6" class="outline-3">
+<h3 id="orgf542aa6"><span class="section-number-3">1.1.</span> Определения</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+<b>Объект (object)</b> &#x2014; самоописывающая структура данных, обладающая внутренними состояниями и способная обрабатывать передаваемые ей сообщения.
+</p>
+
+<p>
+<b>Инкапсуляция (incapsulation)</b> &#x2014; один из основных принципов ООП, заключающийся в том, что доступ к внутреннему состоянию объекта осуществляется только через механизм передачи сообщений.
+</p>
+
+<p>
+<b>Класс (class)</b> &#x2014; тип данных, значениями которого являются объекты, имеющие сходное внутреннее состояние и обрабатывающие одинаковый набор сообщений.
+</p>
+
+<p>
+<i>Замечание</i>: объекты являются самоописывающими, так как содержат информацию о классе, к которому они принадлежат.
+</p>
+
+<p>
+<i>Замечание</i>: класс можно рассматривать как шаблон для порождения объектов.
+</p>
+
+<p>
+<i>Замечание</i>: объекты называют также <b>экземплярами класса</b> (class instanses).
+</p>
+
+<p>
+<i>Пример</i>:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1050;&#1083;&#1072;&#1089;&#1089; Point</span>
+<span style="color: #707183;">(</span>x, y, z<span style="color: #707183;">)</span> <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1082;&#1086;&#1086;&#1088;&#1076;&#1080;&#1085;&#1072;&#1090;&#1099; - &#1101;&#1090;&#1086; &#1101;&#1082;&#1079;&#1077;&#1084;&#1087;&#1083;&#1103;&#1088;&#1085;&#1099;&#1077; &#1087;&#1086;&#1083;&#1103;</span>
+get_r<span style="color: #707183;">(</span><span style="color: #204a87;">double</span> <span style="color: #b35000;">x</span>, <span style="color: #204a87;">double</span> <span style="color: #b35000;">y</span>, <span style="color: #204a87;">double</span> <span style="color: #b35000;">z</span><span style="color: #707183;">)</span> <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1101;&#1082;&#1079;&#1077;&#1084;&#1087;&#1083;&#1103;&#1088;&#1085;&#1099;&#1081; &#1084;&#1077;&#1090;&#1086;&#1076;</span>
+</pre>
+</div>
+
+<p>
+Типы классов:
+</p>
+<ol class="org-ol">
+<li>Публичный <br />
+Один на файл.</li>
+<li>Непубличный <br />
+В одном файле может быть больше одного.</li>
+</ol>
+
+<p>
+<i>Замечание</i>: файл с исходным кодом описывающим публичный класс, именовывается так же, как и <code>public</code> (публичный) класс, с точностью до регистра.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd102c2b" class="outline-3">
+<h3 id="orgd102c2b"><span class="section-number-3">1.2.</span> Структура публичного класса</h3>
+<div class="outline-text-3" id="text-1-2">
+<ol class="org-ol">
+<li>Непубличные классы
+Эти классы видны только внутри этого файла (при объявлении непубличных классов можно не ставить модификатор <code>public</code>)</li>
+<li>Члены класса
+<ul class="org-ul">
+<li>Экземплярные поля <br />
+Хранение внутренних состояний объекта.</li>
+<li>Статические поля <br />
+Хранение данных, общих для всех объектов класса.
+Модификатор <code>static</code>.</li>
+<li>Экземплярные методы <br />
+Выполняют обработку передаваемых объекту сообщений.</li>
+<li>Экземплярные конструкторы <br />
+Инициализирует только что созданный объект
+(Метод, который выполняется в момент инициализации объекта).</li>
+<li>Статический конструктор (набор статических блоков) <br />
+Инициализирует статические поля класса.</li>
+<li>Статический метод <br />
+Выполняют действия, для которых не нужен доступ к конкретному объекту класса.</li>
+<li>Вложенные классы <br />
+Объекты, необходимые для реализации данного класса.</li>
+</ul></li>
+</ol>
+</div>
+<div id="outline-container-org0c4297d" class="outline-4">
+<h4 id="org0c4297d"><span class="section-number-4">1.2.1.</span> Примеры</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ol class="org-ol">
+<li>Не нарушаем принцип инкапсуляции
+<ul class="org-ul">
+<li><p>
+<code>Main.java</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-java">   <span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Main</span> <span style="color: #707183;">{</span>
+       <span style="color: #346604;">public</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">main</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span><span style="color: #909183;">[]</span> <span style="color: #b35000;">args</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+           <span style="color: #204a87;">Point</span> <span style="color: #b35000;">A</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">(</span><span style="color: #5c3566;">"Tochka A"</span><span style="color: #909183;">)</span>;
+           A.setCoords<span style="color: #909183;">(</span><span style="color: #204a87; font-weight: bold;">1.0</span>, <span style="color: #204a87; font-weight: bold;">1.0</span>, <span style="color: #204a87; font-weight: bold;">34.0</span><span style="color: #909183;">)</span>;
+       <span style="color: #7388d6;">}</span>
+   <span style="color: #707183;">}</span>
+</pre>
+</div></li>
+<li><p>
+<code>Point.java</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-java">   <span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Point</span> <span style="color: #707183;">{</span>
+       <span style="color: #346604;">private</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">x</span>;
+       <span style="color: #346604;">private</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">y</span>;
+       <span style="color: #346604;">private</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">z</span>;
+       <span style="color: #346604;">public</span> <span style="color: #a40000;">Point</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span> <span style="color: #b35000;">Name</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span> <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1082;&#1086;&#1085;&#1089;&#1090;&#1088;&#1091;&#1082;&#1090;&#1086;&#1088;</span>
+           <span style="color: #346604;">this</span>.name = Name;
+       <span style="color: #7388d6;">}</span>
+       <span style="color: #346604;">public</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">setCoords</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">double</span> <span style="color: #b35000;">inX</span>, <span style="color: #204a87;">double</span> <span style="color: #b35000;">inY</span>, <span style="color: #204a87;">double</span> <span style="color: #b35000;">inZ</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+           <span style="color: #346604;">this</span>.x = inX;
+           <span style="color: #346604;">this</span>.y = inY;
+           <span style="color: #346604;">this</span>.z = inZ;
+       <span style="color: #7388d6;">}</span>
+   <span style="color: #707183;">}</span>
+</pre>
+</div></li>
+</ul></li>
+<li>Нарушаем
+<ul class="org-ul">
+<li><p>
+<code>Main.java</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-java">   <span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Main</span> <span style="color: #707183;">{</span>
+       <span style="color: #346604;">public</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">main</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span><span style="color: #909183;">[]</span> <span style="color: #b35000;">args</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+           <span style="color: #204a87;">Point</span> <span style="color: #b35000;">A</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">(</span><span style="color: #5c3566;">"Tochka A"</span><span style="color: #909183;">)</span>;
+           A.x = <span style="color: #204a87; font-weight: bold;">1.0</span>;
+           A.y = <span style="color: #204a87; font-weight: bold;">1.0</span>;
+           A.z = <span style="color: #204a87; font-weight: bold;">34.0</span>;
+       <span style="color: #7388d6;">}</span>
+   <span style="color: #707183;">}</span>
+</pre>
+</div></li>
+<li><p>
+<code>Point.java</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-java">   <span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Point</span> <span style="color: #707183;">{</span>
+       <span style="color: #346604;">public</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">x</span>;
+       <span style="color: #346604;">public</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">y</span>;
+       <span style="color: #346604;">public</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">z</span>;
+       <span style="color: #346604;">public</span> <span style="color: #a40000;">Point</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span> <span style="color: #b35000;">Name</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span> <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1082;&#1086;&#1085;&#1089;&#1090;&#1088;&#1091;&#1082;&#1090;&#1086;&#1088;</span>
+           <span style="color: #346604;">this</span>.name = Name;
+       <span style="color: #7388d6;">}</span>
+   <span style="color: #707183;">}</span>
+</pre>
+</div></li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org96a787e" class="outline-2">
+<h2 id="org96a787e"><span class="section-number-2">2.</span> 2 лекция Статические методы, статические поля.</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org394c2ff" class="outline-3">
+<h3 id="org394c2ff"><span class="section-number-3">2.1.</span> Определения статического поля, экземлярного метода</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+<b>Статическое поле (static field)</b> &#x2014; это такое поле, принадлежащее некотрому классу, значение которого разделяется всеми объектами этого класса.
+</p>
+
+<p>
+<i>Пример</i>:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #346604;">class</span> <span style="color: #204a87;">Point</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">int</span> <span style="color: #b35000;">x</span>, <span style="color: #b35000;">y</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1082;&#1086;&#1086;&#1088;&#1076;&#1080;&#1085;&#1072;&#1090;&#1099; &#1090;&#1086;&#1095;&#1082;&#1080;</span>
+    <span style="color: #346604;">public</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">int</span> <span style="color: #b35000;">count</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1086;&#1073;&#1097;&#1077;&#1077; &#1082;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1090;&#1086;&#1095;&#1077;&#1082;</span>
+<span style="color: #707183;">}</span>;
+</pre>
+</div>
+
+<p>
+<b>Экземплярный метод (instance method)</b> &#x2014; подпрограмма (функция), осуществляющая обработку переданного объекту сообщения.
+</p>
+
+<ul class="org-ul">
+<li><i>Экземплярный метод</i> передает объекту сообщения.</li>
+<li><i>Экземплярный метод</i> имеет доступ к внутреннему состоянию объекта (может читать/изменять значения экземплярных полей).</li>
+</ul>
+
+<p>
+<i>Пример</i>:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #346604;">class</span> <span style="color: #204a87;">Person</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">String</span> <span style="color: #b35000;">name</span>;
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">int</span> <span style="color: #b35000;">yearOfBirth</span>;
+    <span style="color: #346604;">private</span> <span style="color: #204a87;">String</span> <span style="color: #b35000;">address</span>;
+<span style="color: #707183;">}</span>;
+</pre>
+</div>
+<p>
+<code>name</code>, <code>yearOfBirth</code>, <code>address</code> &#x2014; экземплярные поля.
+<code>public</code>, <code>private</code> &#x2014; модификаторы.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3a63166" class="outline-3">
+<h3 id="org3a63166"><span class="section-number-3">2.2.</span> Виды модификаторов</h3>
+<div class="outline-text-3" id="text-2-2">
+<ol class="org-ol">
+<li><code>private</code> <br />
+Доступ разрешен только из тела класса.</li>
+<li>Без модификатора <br />
+Доступ разрешен для самого класса и классов из того же пакета.</li>
+<li><code>protected</code> <br />
+Доступ разрешен для самого класса, для классов из того же пакета, а также наследников класса.</li>
+<li><code>public</code> <br />
+Доступ возможен откуда угодно.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgaf96fac" class="outline-3">
+<h3 id="orgaf96fac"><span class="section-number-3">2.3.</span> Перегрузка методов</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Конструктор не указан. Создается конструктор по умолчанию:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Cat</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">String</span> <span style="color: #b35000;">name</span>;
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">int</span> <span style="color: #b35000;">age</span>;
+<span style="color: #707183;">}</span>;
+</pre>
+</div>
+
+<p>
+Явно указан конструктор по умолчанию:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Cat</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">String</span> <span style="color: #b35000;">name</span>;
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">int</span> <span style="color: #b35000;">age</span>;
+    <span style="color: #346604;">public</span> <span style="color: #a40000;">Cat</span><span style="color: #7388d6;">()</span> <span style="color: #7388d6;">{}</span>
+<span style="color: #707183;">}</span>;
+</pre>
+</div>
+
+<p>
+Перегрузка конструктора:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Cat</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">String</span> <span style="color: #b35000;">name</span>;
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">int</span> <span style="color: #b35000;">age</span>;
+    <span style="color: #346604;">public</span> <span style="color: #a40000;">Cat</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span> <span style="color: #b35000;">name</span>, <span style="color: #204a87;">int</span> <span style="color: #b35000;">age</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #346604;">this</span>.name = name;
+        <span style="color: #346604;">this</span>.age = age;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #346604;">public</span> <span style="color: #a40000;">Cat</span><span style="color: #7388d6;">()</span> <span style="color: #7388d6;">{}</span>
+<span style="color: #707183;">}</span>;
+</pre>
+</div>
+<p>
+<code>String name, int age</code> &#x2014; <b>структура метода</b> (method structure).
+</p>
+
+<p>
+<i>Примеры</i> создания объекта класса <code>Cat</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #204a87;">Cat</span> <span style="color: #b35000;">A</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Cat</span><span style="color: #707183;">()</span>;
+<span style="color: #204a87;">Cat</span> <span style="color: #b35000;">B</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Cat</span><span style="color: #707183;">(</span><span style="color: #5c3566;">"Meow"</span>, <span style="color: #204a87; font-weight: bold;">5</span><span style="color: #707183;">)</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6cca536" class="outline-3">
+<h3 id="org6cca536"><span class="section-number-3">2.4.</span> Статические методы</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+<b>Статический метод (static method)</b> &#x2014; метод, не имеющий доступа к внутреннему состоянию этого объекта.
+Другими словами, статический метод может обратиться только к статическим переменным и методам.
+</p>
+
+<p>
+<code>private static</code> vs <code>public static</code>:
+</p>
+<ul class="org-ul">
+<li><code>public static</code> <br />
+Статическое поле можно определить через любой объект класса или имя класса.</li>
+<li><code>private static</code> <br />
+Можно определить только внутри класса.</li>
+</ul>
+
+<p>
+<i>Примеры</i>:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Point</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">private</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">x</span>;
+    <span style="color: #346604;">private</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">y</span>;
+    <span style="color: #346604;">private</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">int</span> <span style="color: #b35000;">n</span>;
+    <span style="color: #346604;">public</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">int</span> <span style="color: #b35000;">val</span>;
+    <span style="color: #346604;">public</span> <span style="color: #a40000;">Point</span><span style="color: #7388d6;">()</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #346604;">this</span>.n = <span style="color: #204a87; font-weight: bold;">10</span>;
+        <span style="color: #346604;">this</span>.val = <span style="color: #204a87; font-weight: bold;">100</span>;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">setCoords</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">double</span> <span style="color: #b35000;">varX</span>, <span style="color: #204a87;">double</span> <span style="color: #b35000;">varY</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #346604;">this</span>.x = varX;
+        <span style="color: #346604;">this</span>.y = varY;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">double</span> <span style="color: #a40000;">getN</span><span style="color: #7388d6;">()</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #346604;">return</span> <span style="color: #346604;">this</span>.n;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">setN</span><span style="color: #7388d6;">()</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #346604;">this</span>.n = <span style="color: #204a87; font-weight: bold;">100</span>;
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>;
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Main</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">public</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">main</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span><span style="color: #909183;">[]</span> <span style="color: #b35000;">args</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #204a87;">Point</span> <span style="color: #b35000;">PointA</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">()</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">n = 10, val = 100</span>
+        PointA.n = <span style="color: #204a87; font-weight: bold;">242</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1086;&#1096;&#1080;&#1073;&#1082;&#1072;, &#1090;.&#1082;. &#1087;&#1086;&#1083;&#1077; private</span>
+        Point.n = <span style="color: #204a87; font-weight: bold;">100</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1086;&#1096;&#1080;&#1073;&#1082;&#1072;, &#1090;.&#1082;. &#1087;&#1086;&#1083;&#1077; private</span>
+        Point.val = <span style="color: #204a87; font-weight: bold;">200</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1074;&#1077;&#1088;&#1085;&#1086;, &#1086;&#1073;&#1088;&#1072;&#1097;&#1077;&#1085;&#1080;&#1077; &#1082; static &#1087;&#1086;&#1083;&#1102; &#1095;&#1077;&#1088;&#1077;&#1079; &#1080;&#1084;&#1103; &#1082;&#1083;&#1072;&#1089;&#1089;&#1072;</span>
+        <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">n = 10, val = 100</span>
+
+        <span style="color: #204a87;">Point</span> <span style="color: #b35000;">PointB</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">()</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">n = 10, val = 100</span>
+        PointA.setN<span style="color: #909183;">()</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">n = 100, val = 100</span>
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd987f2f" class="outline-3">
+<h3 id="orgd987f2f"><span class="section-number-3">2.5.</span> Статические блоки</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+<b>Статический блок (static-блоки)</b> &#x2014; код, расположенный в статическом блоке, будет выполнен во время запуска программы, или при первой загрузке класса, еще до того, как этот класс будет использоваться в программе (т.е. до создания его экземляров, вызова статических методов и обращения к ним и т.д.).
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">A</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">static</span> <span style="color: #204a87;">Date</span> <span style="color: #b35000;">timeStart</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1074;&#1088;&#1077;&#1084;&#1103; &#1079;&#1072;&#1087;&#1091;&#1089;&#1082;&#1072; &#1087;&#1088;&#1086;&#1075;&#1088;&#1072;&#1084;&#1084;&#1099;</span>
+    <span style="color: #204a87;">Date</span> <span style="color: #b35000;">timeStartObj</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1074;&#1088;&#1077;&#1084;&#1103; &#1080;&#1085;&#1080;&#1094;&#1080;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1080; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1072;</span>
+    <span style="color: #346604;">static</span> <span style="color: #7388d6;">{</span>
+        timeStart = <span style="color: #346604;">new</span> <span style="color: #204a87;">Date</span><span style="color: #909183;">()</span>;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #346604;">public</span> <span style="color: #a40000;">A</span><span style="color: #7388d6;">()</span> <span style="color: #7388d6;">{</span>
+        timeStartObj = <span style="color: #346604;">new</span> <span style="color: #204a87;">Date</span><span style="color: #909183;">()</span>;
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>;
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Main</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">public</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">main</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span><span style="color: #909183;">[]</span> <span style="color: #b35000;">args</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #204a87;">A</span> <span style="color: #b35000;">a</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">A</span><span style="color: #909183;">()</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">timeStart != timeStartObj</span>
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Starovoytov Alexandr</p>
+<p class="date">Created: 2022-02-19 Sat 23:59</p>
+</div>
+</body>
+</html>
