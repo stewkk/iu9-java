@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-02-19 Sat 23:59 -->
+<!-- 2022-02-27 Sun 12:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Языки и методы программирования. Лекции</title>
@@ -193,6 +193,12 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 </head>
 <body>
 <div id="content" class="content">
@@ -201,50 +207,64 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge5abf83">1. 1 лекция Понятия класса, объекта. Инкапсуляция.</a>
+<li><a href="#org7a8d2d8">1. Понятия класса, объекта. Инкапсуляция.</a>
 <ul>
-<li><a href="#orgf542aa6">1.1. Определения</a></li>
-<li><a href="#orgd102c2b">1.2. Структура публичного класса</a>
+<li><a href="#org417db93">1.1. Определения</a></li>
+<li><a href="#org8e64a20">1.2. Структура публичного класса</a>
 <ul>
-<li><a href="#org0c4297d">1.2.1. Примеры</a></li>
+<li><a href="#orge7873e6">1.2.1. Примеры</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org96a787e">2. 2 лекция Статические методы, статические поля.</a>
+<li><a href="#org3cb9f82">2. Статические методы, статические поля.</a>
 <ul>
-<li><a href="#org394c2ff">2.1. Определения статического поля, экземлярного метода</a></li>
-<li><a href="#org3a63166">2.2. Виды модификаторов</a></li>
-<li><a href="#orgaf96fac">2.3. Перегрузка методов</a></li>
-<li><a href="#org6cca536">2.4. Статические методы</a></li>
-<li><a href="#orgd987f2f">2.5. Статические блоки</a></li>
+<li><a href="#orgb8d18af">2.1. Определения статического поля, экземлярного метода</a></li>
+<li><a href="#org6cc89f2">2.2. Виды модификаторов</a></li>
+<li><a href="#org8361842">2.3. Перегрузка методов</a></li>
+<li><a href="#org28f024b">2.4. Статические методы</a></li>
+<li><a href="#orgc299924">2.5. Статические блоки</a></li>
+</ul>
+</li>
+<li><a href="#orga81647d">3. Статические поля, методы, блоки.</a>
+<ul>
+<li><a href="#orgab1586f">3.1. Доступ к статическим полям</a></li>
+<li><a href="#orgbafabc0">3.2. Пример использования массивов объектов</a></li>
+<li><a href="#org6b27338">3.3. Перегрузка методов</a></li>
+<li><a href="#orga58afa7">3.4. Виртуальные методы</a></li>
+<li><a href="#org0aca895">3.5. Перегрузка экземплярного конструктора</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge5abf83" class="outline-2">
-<h2 id="orge5abf83"><span class="section-number-2">1.</span> 1 лекция Понятия класса, объекта. Инкапсуляция.</h2>
+<div id="outline-container-org7a8d2d8" class="outline-2">
+<h2 id="org7a8d2d8"><span class="section-number-2">1.</span> Понятия класса, объекта. Инкапсуляция.</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgf542aa6" class="outline-3">
-<h3 id="orgf542aa6"><span class="section-number-3">1.1.</span> Определения</h3>
+<div id="outline-container-org417db93" class="outline-3">
+<h3 id="org417db93"><span class="section-number-3">1.1.</span> Определения</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-<b>Объект (object)</b> &#x2014; самоописывающая структура данных, обладающая внутренними состояниями и способная обрабатывать передаваемые ей сообщения.
+<b>Объект (object)</b> &#x2014; самоописывающая структура данных, обладающая внутренними
+состояниями и способная обрабатывать передаваемые ей сообщения.
 </p>
 
 <p>
-<b>Инкапсуляция (incapsulation)</b> &#x2014; один из основных принципов ООП, заключающийся в том, что доступ к внутреннему состоянию объекта осуществляется только через механизм передачи сообщений.
+<b>Инкапсуляция (incapsulation)</b> &#x2014; один из основных принципов ООП, заключающийся
+в том, что доступ к внутреннему состоянию объекта осуществляется только через
+механизм передачи сообщений.
 </p>
 
 <p>
-<b>Класс (class)</b> &#x2014; тип данных, значениями которого являются объекты, имеющие сходное внутреннее состояние и обрабатывающие одинаковый набор сообщений.
+<b>Класс (class)</b> &#x2014; тип данных, значениями которого являются объекты, имеющие
+сходное внутреннее состояние и обрабатывающие одинаковый набор сообщений.
 </p>
 
 <p>
-<i>Замечание</i>: объекты являются самоописывающими, так как содержат информацию о классе, к которому они принадлежат.
+<i>Замечание</i>: объекты являются самоописывающими, так как содержат информацию о
+классе, к которому они принадлежат.
 </p>
 
 <p>
@@ -276,17 +296,19 @@ get_r<span style="color: #707183;">(</span><span style="color: #204a87;">double<
 </ol>
 
 <p>
-<i>Замечание</i>: файл с исходным кодом описывающим публичный класс, именовывается так же, как и <code>public</code> (публичный) класс, с точностью до регистра.
+<i>Замечание</i>: файл с исходным кодом описывающим публичный класс, именовывается
+так же, как и <code>public</code> (публичный) класс, с точностью до регистра.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgd102c2b" class="outline-3">
-<h3 id="orgd102c2b"><span class="section-number-3">1.2.</span> Структура публичного класса</h3>
+<div id="outline-container-org8e64a20" class="outline-3">
+<h3 id="org8e64a20"><span class="section-number-3">1.2.</span> Структура публичного класса</h3>
 <div class="outline-text-3" id="text-1-2">
 <ol class="org-ol">
-<li>Непубличные классы
-Эти классы видны только внутри этого файла (при объявлении непубличных классов можно не ставить модификатор <code>public</code>)</li>
+<li>Непубличные классы <br />
+Эти классы видны только внутри этого файла (при объявлении
+непубличных классов можно не ставить модификатор <code>public</code>)</li>
 <li>Члены класса
 <ul class="org-ul">
 <li>Экземплярные поля <br />
@@ -302,14 +324,15 @@ get_r<span style="color: #707183;">(</span><span style="color: #204a87;">double<
 <li>Статический конструктор (набор статических блоков) <br />
 Инициализирует статические поля класса.</li>
 <li>Статический метод <br />
-Выполняют действия, для которых не нужен доступ к конкретному объекту класса.</li>
+Выполняют действия, для которых не нужен доступ к конкретному объекту
+класса.</li>
 <li>Вложенные классы <br />
 Объекты, необходимые для реализации данного класса.</li>
 </ul></li>
 </ol>
 </div>
-<div id="outline-container-org0c4297d" class="outline-4">
-<h4 id="org0c4297d"><span class="section-number-4">1.2.1.</span> Примеры</h4>
+<div id="outline-container-orge7873e6" class="outline-4">
+<h4 id="orge7873e6"><span class="section-number-4">1.2.1.</span> Примеры</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <ol class="org-ol">
 <li>Не нарушаем принцип инкапсуляции
@@ -382,15 +405,16 @@ get_r<span style="color: #707183;">(</span><span style="color: #204a87;">double<
 </div>
 </div>
 </div>
-<div id="outline-container-org96a787e" class="outline-2">
-<h2 id="org96a787e"><span class="section-number-2">2.</span> 2 лекция Статические методы, статические поля.</h2>
+<div id="outline-container-org3cb9f82" class="outline-2">
+<h2 id="org3cb9f82"><span class="section-number-2">2.</span> Статические методы, статические поля.</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org394c2ff" class="outline-3">
-<h3 id="org394c2ff"><span class="section-number-3">2.1.</span> Определения статического поля, экземлярного метода</h3>
+<div id="outline-container-orgb8d18af" class="outline-3">
+<h3 id="orgb8d18af"><span class="section-number-3">2.1.</span> Определения статического поля, экземлярного метода</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-<b>Статическое поле (static field)</b> &#x2014; это такое поле, принадлежащее некотрому классу, значение которого разделяется всеми объектами этого класса.
+<b>Статическое поле (static field)</b> &#x2014; это такое поле, принадлежащее некотрому
+классу, значение которого разделяется всеми объектами этого класса.
 </p>
 
 <p>
@@ -405,12 +429,14 @@ get_r<span style="color: #707183;">(</span><span style="color: #204a87;">double<
 </div>
 
 <p>
-<b>Экземплярный метод (instance method)</b> &#x2014; подпрограмма (функция), осуществляющая обработку переданного объекту сообщения.
+<b>Экземплярный метод (instance method)</b> &#x2014; подпрограмма (функция),
+осуществляющая обработку переданного объекту сообщения.
 </p>
 
 <ul class="org-ul">
 <li><i>Экземплярный метод</i> передает объекту сообщения.</li>
-<li><i>Экземплярный метод</i> имеет доступ к внутреннему состоянию объекта (может читать/изменять значения экземплярных полей).</li>
+<li><i>Экземплярный метод</i> имеет доступ к внутреннему состоянию объекта (может
+читать/изменять значения экземплярных полей).</li>
 </ul>
 
 <p>
@@ -431,8 +457,8 @@ get_r<span style="color: #707183;">(</span><span style="color: #204a87;">double<
 </div>
 </div>
 
-<div id="outline-container-org3a63166" class="outline-3">
-<h3 id="org3a63166"><span class="section-number-3">2.2.</span> Виды модификаторов</h3>
+<div id="outline-container-org6cc89f2" class="outline-3">
+<h3 id="org6cc89f2"><span class="section-number-3">2.2.</span> Виды модификаторов</h3>
 <div class="outline-text-3" id="text-2-2">
 <ol class="org-ol">
 <li><code>private</code> <br />
@@ -440,14 +466,15 @@ get_r<span style="color: #707183;">(</span><span style="color: #204a87;">double<
 <li>Без модификатора <br />
 Доступ разрешен для самого класса и классов из того же пакета.</li>
 <li><code>protected</code> <br />
-Доступ разрешен для самого класса, для классов из того же пакета, а также наследников класса.</li>
+Доступ разрешен для самого класса, для классов из того же пакета, а также
+наследников класса.</li>
 <li><code>public</code> <br />
 Доступ возможен откуда угодно.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgaf96fac" class="outline-3">
-<h3 id="orgaf96fac"><span class="section-number-3">2.3.</span> Перегрузка методов</h3>
+<div id="outline-container-org8361842" class="outline-3">
+<h3 id="org8361842"><span class="section-number-3">2.3.</span> Перегрузка методов</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Конструктор не указан. Создается конструктор по умолчанию:
@@ -502,12 +529,13 @@ get_r<span style="color: #707183;">(</span><span style="color: #204a87;">double<
 </div>
 </div>
 
-<div id="outline-container-org6cca536" class="outline-3">
-<h3 id="org6cca536"><span class="section-number-3">2.4.</span> Статические методы</h3>
+<div id="outline-container-org28f024b" class="outline-3">
+<h3 id="org28f024b"><span class="section-number-3">2.4.</span> Статические методы</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
-<b>Статический метод (static method)</b> &#x2014; метод, не имеющий доступа к внутреннему состоянию этого объекта.
-Другими словами, статический метод может обратиться только к статическим переменным и методам.
+<b>Статический метод (static method)</b> &#x2014; метод, не имеющий доступа к внутреннему
+состоянию этого объекта. Другими словами, статический метод может обратиться
+только к статическим переменным и методам.
 </p>
 
 <p>
@@ -549,7 +577,7 @@ get_r<span style="color: #707183;">(</span><span style="color: #204a87;">double<
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Main</span> <span style="color: #707183;">{</span>
     <span style="color: #346604;">public</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">main</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span><span style="color: #909183;">[]</span> <span style="color: #b35000;">args</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
-        <span style="color: #204a87;">Point</span> <span style="color: #b35000;">PointA</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">()</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">n = 10, val = 100</span>
+       <span style="color: #204a87;">Point</span> <span style="color: #b35000;">PointA</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">()</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">n = 10, val = 100</span>
         PointA.n = <span style="color: #204a87; font-weight: bold;">242</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1086;&#1096;&#1080;&#1073;&#1082;&#1072;, &#1090;.&#1082;. &#1087;&#1086;&#1083;&#1077; private</span>
         Point.n = <span style="color: #204a87; font-weight: bold;">100</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1086;&#1096;&#1080;&#1073;&#1082;&#1072;, &#1090;.&#1082;. &#1087;&#1086;&#1083;&#1077; private</span>
         Point.val = <span style="color: #204a87; font-weight: bold;">200</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1074;&#1077;&#1088;&#1085;&#1086;, &#1086;&#1073;&#1088;&#1072;&#1097;&#1077;&#1085;&#1080;&#1077; &#1082; static &#1087;&#1086;&#1083;&#1102; &#1095;&#1077;&#1088;&#1077;&#1079; &#1080;&#1084;&#1103; &#1082;&#1083;&#1072;&#1089;&#1089;&#1072;</span>
@@ -564,11 +592,14 @@ get_r<span style="color: #707183;">(</span><span style="color: #204a87;">double<
 </div>
 </div>
 
-<div id="outline-container-orgd987f2f" class="outline-3">
-<h3 id="orgd987f2f"><span class="section-number-3">2.5.</span> Статические блоки</h3>
+<div id="outline-container-orgc299924" class="outline-3">
+<h3 id="orgc299924"><span class="section-number-3">2.5.</span> Статические блоки</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
-<b>Статический блок (static-блоки)</b> &#x2014; код, расположенный в статическом блоке, будет выполнен во время запуска программы, или при первой загрузке класса, еще до того, как этот класс будет использоваться в программе (т.е. до создания его экземляров, вызова статических методов и обращения к ним и т.д.).
+<b>Статический блок (static-блоки)</b> &#x2014; код, расположенный в статическом блоке,
+ будет выполнен во время запуска программы, или при первой загрузке класса, еще
+ до того, как этот класс будет использоваться в программе (т.е. до создания его
+ экземляров, вызова статических методов и обращения к ним и т.д.).
 </p>
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">A</span> <span style="color: #707183;">{</span>
@@ -594,10 +625,189 @@ get_r<span style="color: #707183;">(</span><span style="color: #204a87;">double<
 </div>
 </div>
 </div>
+<div id="outline-container-orga81647d" class="outline-2">
+<h2 id="orga81647d"><span class="section-number-2">3.</span> Статические поля, методы, блоки.</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgab1586f" class="outline-3">
+<h3 id="orgab1586f"><span class="section-number-3">3.1.</span> Доступ к статическим полям</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+<b>Утверждение</b>: если экземплярное поле является статичным, то это значение
+глобально для всех объектов.
+</p>
+
+<p>
+<b>Утверждение</b>: статический метод может обратиться только к статическим
+переменным. =&gt; любой статический метод не имеет доступа к внутреннему состоянию
+объектов этого класса.
+</p>
+
+<p>
+<i>Пример</i>:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Point</span> <span style="color: #707183;">{</span>
+    <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">... &#1086;&#1073;&#1098;&#1103;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103; &#1087;&#1086;&#1083;&#1077;&#1081;</span>
+    <span style="color: #346604;">private</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">y</span>;
+    <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">...</span>
+
+    <span style="color: #346604;">public</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">setY</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">double</span> <span style="color: #b35000;">varY</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        y = varY; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">this.y = varY - &#1085;&#1077;&#1083;&#1100;&#1079;&#1103;</span>
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbafabc0" class="outline-3">
+<h3 id="orgbafabc0"><span class="section-number-3">3.2.</span> Пример использования массивов объектов</h3>
+<div class="outline-text-3" id="text-3-2">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Main</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">public</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">main</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span><span style="color: #909183;">[]</span> <span style="color: #b35000;">args</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1054;&#1073;&#1098;&#1077;&#1082;&#1090;&#1099; &#1082;&#1083;&#1072;&#1089;&#1089;&#1072; Point</span>
+        <span style="color: #204a87;">Point</span> <span style="color: #b35000;">A</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">(</span><span style="color: #5c3566;">"A"</span>, <span style="color: #204a87; font-weight: bold;">5</span>, <span style="color: #204a87; font-weight: bold;">4</span><span style="color: #909183;">)</span>;
+        <span style="color: #204a87;">Point</span> <span style="color: #b35000;">B</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">(</span><span style="color: #5c3566;">"B"</span>, <span style="color: #204a87; font-weight: bold;">100</span>, <span style="color: #204a87; font-weight: bold;">100</span><span style="color: #909183;">)</span>;
+
+        <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1054;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1077;&#1085;&#1080;&#1077; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1072; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1086;&#1074; &#1080;&#1079; 100 &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1086;&#1074;</span>
+        <span style="color: #204a87;">Point</span><span style="color: #909183;">[]</span> <span style="color: #b35000;">points</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">[</span><span style="color: #204a87; font-weight: bold;">100</span><span style="color: #909183;">]</span>;
+        <span style="color: #5f615c; font-style: italic;">//      </span><span style="color: #5f615c; font-style: italic;">~~~~~~ - &#1080;&#1084;&#1103; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1072; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1086;&#1074;</span>
+        points<span style="color: #909183;">[</span><span style="color: #204a87; font-weight: bold;">0</span><span style="color: #909183;">]</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">(</span><span style="color: #5c3566;">"AA"</span>, <span style="color: #204a87; font-weight: bold;">2</span>, <span style="color: #204a87; font-weight: bold;">1</span><span style="color: #909183;">)</span>;
+        points<span style="color: #909183;">[</span><span style="color: #204a87; font-weight: bold;">1</span><span style="color: #909183;">]</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">(</span><span style="color: #5c3566;">"BB"</span>, <span style="color: #204a87; font-weight: bold;">34</span>, <span style="color: #204a87; font-weight: bold;">48</span><span style="color: #909183;">)</span>;
+        <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">...</span>
+        <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #ce5c00; font-weight: bold; font-style: italic;">TODO</span><span style="color: #5f615c; font-style: italic;"> &#1080;&#1085;&#1080;&#1094;&#1080;&#1072;&#1083;&#1080;&#1079;&#1080;&#1088;&#1091;&#1102;&#1090;&#1089;&#1103; &#1083;&#1080; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1099; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1072; &#1087;&#1088;&#1080; &#1077;&#1075;&#1086; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1080;?</span>
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>;
+</pre>
+</div>
+
+<p>
+<i>Замечание</i>: если в объявлении класса содержится несколько статических блоков,
+то код в них выполняется последовательно.
+</p>
+
+<p>
+<i>Замечание</i>: совокупность всех <code>static</code>-блоков играет роль статического
+конструктора.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6b27338" class="outline-3">
+<h3 id="org6b27338"><span class="section-number-3">3.3.</span> Перегрузка методов</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+<b>Сигнатура метода (method signature)</b> &#x2014; информация о количестве и типах
+формальных параметров в методе.
+</p>
+
+<p>
+<i>Замечание</i>: если у метода нет формальных параметров, то говорят, что у метода
+пустая сигнатура.
+</p>
+
+<p>
+<b>Перегрузка метода (method overloading)</b> &#x2014; это объявление для заданного класса
+двух или более методов, имеющих одинаковое имя, но различные сигнатуры.
+</p>
+
+<p>
+<i>Замечание</i>: решение о том, куда передается управление при вызове перегруженного
+метода X, принимается на этапе компиляции на основе сопоставления типов
+фактических параметров вызываемого метода и сигнатуры, имеющей имя X.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga58afa7" class="outline-3">
+<h3 id="orga58afa7"><span class="section-number-3">3.4.</span> Виртуальные методы</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+<b>Раннее связывание (early binding)</b> &#x2014; определение адреса вызываемого
+экземлярного метода во время компиляции программы.
+</p>
+
+<p>
+<b>Позднее связывание (late binding)</b> &#x2014; определение адреса вызываемого
+экземлярного метода на основе информации о классе объекта во время выполнения
+программы.
+</p>
+
+<p>
+<b>Виртуальные экземплярные методы</b> &#x2013; экземплярные методы, для вызова которых
+выполняется позднее связывание называются <b>виртуальными</b>.
+</p>
+
+<p>
+<i>Замечание</i>: в языке <code>Java</code> все методы являются <b>виртуальными</b>.
+</p>
+
+<p>
+<i>Выводы</i>:
+</p>
+<ol class="org-ol">
+<li>Все методы в <code>Java</code> виртуальные, следовательно, для любых методов выполняется
+позднее связывание.</li>
+<li>В <code>Java</code> метод класса может быть определен в классах-наследниках так, что
+конкретная реализация метода для вызова будет определяться во время
+исполнения.</li>
+<li>Таким образом, программисту не обязательно знать точный тип объекта для
+работы с ним через виртуальные методы: достаточно знать, что объект
+принадлежит классу или наследнику класса, в котором объявлен метод.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org0aca895" class="outline-3">
+<h3 id="org0aca895"><span class="section-number-3">3.5.</span> Перегрузка экземплярного конструктора</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+<b>Экземплярный конструктор (instance constructor)</b> &#x2014; экземплярный метод,
+предназначенный для инициализации только что созданного объекта.
+</p>
+
+<p>
+<i>Замечание</i>: в <code>Java</code> и других объектно-ориентированных языках программирования
+операция создания объекта объединена с вызовом конструктора, что гарантирует
+отсутствие неинициализированных объектов.
+</p>
+
+<p>
+<i>Замечание</i>: перегрузка конструктора осуществляется аналогично перегрузке
+методов, поскольку конструктор это такой же метод.
+</p>
+
+<p>
+<b>Конструктор по умолчанию (default constructor)</b> &#x2014; экземплярный конструктор с
+пустой сигнатурой.
+</p>
+
+<p>
+<i>Замечание</i>: во всех языка программирования конструктор по умолчанию всегда
+создается даже если для класса не определен ни один конструктор.
+</p>
+
+<p>
+<b>Статический конструктор (static constructor)</b> &#x2014; статический метод,
+предназначенный для инициализации статических полей класса. Статический
+конструктор не имеет параметров и вызывается до вызова любого статического
+метода или конструктора класса.
+</p>
+
+<p>
+<i>Замечание</i>: в <code>Java</code> нет статических конструкторов, т.к. конструктор по
+определению не может быть статическим. Не может существовать конструктора для
+класса, т.к. класс не является его экземпляром.
+</p>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Starovoytov Alexandr</p>
-<p class="date">Created: 2022-02-19 Sat 23:59</p>
+<p class="date">Created: 2022-02-27 Sun 12:14</p>
 </div>
 </body>
 </html>
