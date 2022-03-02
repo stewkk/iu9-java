@@ -21,7 +21,7 @@ public class BoolMatrix implements Comparable<BoolMatrix> {
         this.n = n;
         this.m = m;
         this.matrix = generateRandomMatrix();
-        this.countEqual = countEqualRows() + countEqualColoumns();
+        this.countEqual = countEqualRows() + countEqualColumns();
     }
 
     @Override
@@ -55,15 +55,15 @@ public class BoolMatrix implements Comparable<BoolMatrix> {
         return ans;
     }
 
-    private int countEqualColoumns() {
+    private int countEqualColumns() {
         int ans = 0;
         BoolArrayMultiset set = new BoolArrayMultiset();
         for (int j = 0; j < m; ++j) {
-            byte[] coloumn = new byte[n];
+            byte[] column = new byte[n];
             for (int i = 0; i < n; ++i) {
-                coloumn[i] = this.matrix[i][j];
+                column[i] = this.matrix[i][j];
             }
-            int count = set.insert(coloumn);
+            int count = set.insert(column);
             if (count == 2) {
                 ans += 2;
             } else if (count > 2) {
