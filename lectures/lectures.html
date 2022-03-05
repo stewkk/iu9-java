@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-06 Sun 00:14 -->
+<!-- 2022-03-06 Sun 00:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Языки и методы программирования. Лекции</title>
@@ -207,53 +207,53 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8f43089">1. Понятия класса, объекта. Инкапсуляция.</a>
+<li><a href="#org69c8c46">1. Понятия класса, объекта. Инкапсуляция.</a>
 <ul>
-<li><a href="#org68ab1a0">1.1. Определения</a></li>
-<li><a href="#orge468aeb">1.2. Структура публичного класса</a>
+<li><a href="#orgfee6661">1.1. Определения</a></li>
+<li><a href="#org406074d">1.2. Структура публичного класса</a>
 <ul>
-<li><a href="#org38a89dc">1.2.1. Примеры</a></li>
+<li><a href="#org063ddbf">1.2.1. Примеры</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgde33d39">2. Статические методы, статические поля.</a>
+<li><a href="#org2421fdc">2. Статические методы, статические поля.</a>
 <ul>
-<li><a href="#orgf752d8f">2.1. Определения статического поля, экземлярного метода</a></li>
-<li><a href="#org430944d">2.2. Виды модификаторов</a></li>
-<li><a href="#org6ef7e0e">2.3. Перегрузка методов</a></li>
-<li><a href="#org02a7a85">2.4. Статические методы</a></li>
-<li><a href="#org452070c">2.5. Статические блоки</a></li>
+<li><a href="#orgb46f189">2.1. Определения статического поля, экземлярного метода</a></li>
+<li><a href="#org5f8f131">2.2. Виды модификаторов</a></li>
+<li><a href="#org24a34bd">2.3. Перегрузка методов</a></li>
+<li><a href="#org53e697e">2.4. Статические методы</a></li>
+<li><a href="#orga684ea0">2.5. Статические блоки</a></li>
 </ul>
 </li>
-<li><a href="#org5e57741">3. Статические поля, методы, блоки.</a>
+<li><a href="#org416d38e">3. Статические поля, методы, блоки.</a>
 <ul>
-<li><a href="#org3153823">3.1. Доступ к статическим полям</a></li>
-<li><a href="#org091c8cf">3.2. Пример использования массивов объектов</a></li>
-<li><a href="#org5f62a3e">3.3. Перегрузка методов</a></li>
-<li><a href="#orgbc9d090">3.4. Виртуальные методы</a></li>
-<li><a href="#org7b04735">3.5. Перегрузка экземплярного конструктора</a></li>
+<li><a href="#orgd377f27">3.1. Доступ к статическим полям</a></li>
+<li><a href="#org1c4c152">3.2. Пример использования массивов объектов</a></li>
+<li><a href="#org36cfe5f">3.3. Перегрузка методов</a></li>
+<li><a href="#org6797e3e">3.4. Виртуальные методы</a></li>
+<li><a href="#org53378a7">3.5. Перегрузка экземплярного конструктора</a></li>
 </ul>
 </li>
-<li><a href="#org496b809">4. Наследование, субтипизация</a>
+<li><a href="#org80e56c6">4. Наследование, субтипизация</a>
 <ul>
-<li><a href="#orge955214">4.1. Понятие субтипизации</a></li>
-<li><a href="#orgd6c7ec3">4.2. Явная и неявная типизация</a></li>
-<li><a href="#orgdcc6e4f">4.3. Наследование как механизм явной субтипизации</a></li>
-<li><a href="#org335b614">4.4. Абстрактные классы и интерфейсы</a></li>
-<li><a href="#org760e8ad">4.5. Неявное и явное приведение типов</a></li>
+<li><a href="#org06c90b0">4.1. Понятие субтипизации</a></li>
+<li><a href="#org1018131">4.2. Явная и неявная типизация</a></li>
+<li><a href="#orgf3fa467">4.3. Наследование как механизм явной субтипизации</a></li>
+<li><a href="#orgae766ab">4.4. Абстрактные классы и интерфейсы</a></li>
+<li><a href="#org33a68d7">4.5. Неявное и явное приведение типов</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8f43089" class="outline-2">
-<h2 id="org8f43089"><span class="section-number-2">1.</span> Понятия класса, объекта. Инкапсуляция.</h2>
+<div id="outline-container-org69c8c46" class="outline-2">
+<h2 id="org69c8c46"><span class="section-number-2">1.</span> Понятия класса, объекта. Инкапсуляция.</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org68ab1a0" class="outline-3">
-<h3 id="org68ab1a0"><span class="section-number-3">1.1.</span> Определения</h3>
+<div id="outline-container-orgfee6661" class="outline-3">
+<h3 id="orgfee6661"><span class="section-number-3">1.1.</span> Определения</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 <b>Объект (object)</b> &#x2014; самоописывающая структура данных, обладающая внутренними
@@ -288,9 +288,9 @@
 <i>Пример</i>:
 </p>
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1050;&#1083;&#1072;&#1089;&#1089; Point</span>
-<span style="color: #51afef;">(</span>x, y, z<span style="color: #51afef;">)</span> <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1082;&#1086;&#1086;&#1088;&#1076;&#1080;&#1085;&#1072;&#1090;&#1099; - &#1101;&#1090;&#1086; &#1101;&#1082;&#1079;&#1077;&#1084;&#1087;&#1083;&#1103;&#1088;&#1085;&#1099;&#1077; &#1087;&#1086;&#1083;&#1103;</span>
-get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">x</span>, <span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">y</span>, <span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">z</span><span style="color: #51afef;">)</span> <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1101;&#1082;&#1079;&#1077;&#1084;&#1087;&#1083;&#1103;&#1088;&#1085;&#1099;&#1081; &#1084;&#1077;&#1090;&#1086;&#1076;</span>
+<pre class="src src-java"><span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1050;&#1083;&#1072;&#1089;&#1089; Point</span>
+<span style="color: #707183;">(</span>x, y, z<span style="color: #707183;">)</span> <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1082;&#1086;&#1086;&#1088;&#1076;&#1080;&#1085;&#1072;&#1090;&#1099; - &#1101;&#1090;&#1086; &#1101;&#1082;&#1079;&#1077;&#1084;&#1087;&#1083;&#1103;&#1088;&#1085;&#1099;&#1077; &#1087;&#1086;&#1083;&#1103;</span>
+get_r<span style="color: #707183;">(</span><span style="color: #204a87;">double</span> <span style="color: #b35000;">x</span>, <span style="color: #204a87;">double</span> <span style="color: #b35000;">y</span>, <span style="color: #204a87;">double</span> <span style="color: #b35000;">z</span><span style="color: #707183;">)</span> <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1101;&#1082;&#1079;&#1077;&#1084;&#1087;&#1083;&#1103;&#1088;&#1085;&#1099;&#1081; &#1084;&#1077;&#1090;&#1086;&#1076;</span>
 </pre>
 </div>
 
@@ -311,8 +311,8 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 </div>
 </div>
 
-<div id="outline-container-orge468aeb" class="outline-3">
-<h3 id="orge468aeb"><span class="section-number-3">1.2.</span> Структура публичного класса</h3>
+<div id="outline-container-org406074d" class="outline-3">
+<h3 id="org406074d"><span class="section-number-3">1.2.</span> Структура публичного класса</h3>
 <div class="outline-text-3" id="text-1-2">
 <ol class="org-ol">
 <li>Непубличные классы <br />
@@ -340,8 +340,8 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 </ul></li>
 </ol>
 </div>
-<div id="outline-container-org38a89dc" class="outline-4">
-<h4 id="org38a89dc"><span class="section-number-4">1.2.1.</span> Примеры</h4>
+<div id="outline-container-org063ddbf" class="outline-4">
+<h4 id="org063ddbf"><span class="section-number-4">1.2.1.</span> Примеры</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <ol class="org-ol">
 <li>Не нарушаем принцип инкапсуляции
@@ -350,31 +350,31 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 <code>Main.java</code>:
 </p>
 <div class="org-src-container">
-<pre class="src src-java">   <span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> <span style="color: #51afef;">{</span>
-       <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">main</span><span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">String</span><span style="color: #98be65;">[]</span> <span style="color: #dcaeea;">args</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span>
-           <span style="color: #ECBE7B;">Point</span> <span style="color: #dcaeea;">A</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Point</span><span style="color: #98be65;">(</span><span style="color: #98be65;">"Tochka A"</span><span style="color: #98be65;">)</span>;
-           A.setCoords<span style="color: #98be65;">(</span><span style="color: #da8548; font-weight: bold;">1.0</span>, <span style="color: #da8548; font-weight: bold;">1.0</span>, <span style="color: #da8548; font-weight: bold;">34.0</span><span style="color: #98be65;">)</span>;
-       <span style="color: #c678dd;">}</span>
-   <span style="color: #51afef;">}</span>
+<pre class="src src-java">   <span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Main</span> <span style="color: #707183;">{</span>
+       <span style="color: #346604;">public</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">main</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span><span style="color: #909183;">[]</span> <span style="color: #b35000;">args</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+           <span style="color: #204a87;">Point</span> <span style="color: #b35000;">A</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">(</span><span style="color: #5c3566;">"Tochka A"</span><span style="color: #909183;">)</span>;
+           A.setCoords<span style="color: #909183;">(</span><span style="color: #204a87; font-weight: bold;">1.0</span>, <span style="color: #204a87; font-weight: bold;">1.0</span>, <span style="color: #204a87; font-weight: bold;">34.0</span><span style="color: #909183;">)</span>;
+       <span style="color: #7388d6;">}</span>
+   <span style="color: #707183;">}</span>
 </pre>
 </div></li>
 <li><p>
 <code>Point.java</code>:
 </p>
 <div class="org-src-container">
-<pre class="src src-java">   <span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Point</span> <span style="color: #51afef;">{</span>
-       <span style="color: #51afef;">private</span> <span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">x</span>;
-       <span style="color: #51afef;">private</span> <span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">y</span>;
-       <span style="color: #51afef;">private</span> <span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">z</span>;
-       <span style="color: #51afef;">public</span> <span style="color: #c678dd;">Point</span><span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">String</span> <span style="color: #dcaeea;">Name</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span> <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1082;&#1086;&#1085;&#1089;&#1090;&#1088;&#1091;&#1082;&#1090;&#1086;&#1088;</span>
-           <span style="color: #51afef;">this</span>.name = Name;
-       <span style="color: #c678dd;">}</span>
-       <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">setCoords</span><span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">inX</span>, <span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">inY</span>, <span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">inZ</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span>
-           <span style="color: #51afef;">this</span>.x = inX;
-           <span style="color: #51afef;">this</span>.y = inY;
-           <span style="color: #51afef;">this</span>.z = inZ;
-       <span style="color: #c678dd;">}</span>
-   <span style="color: #51afef;">}</span>
+<pre class="src src-java">   <span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Point</span> <span style="color: #707183;">{</span>
+       <span style="color: #346604;">private</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">x</span>;
+       <span style="color: #346604;">private</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">y</span>;
+       <span style="color: #346604;">private</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">z</span>;
+       <span style="color: #346604;">public</span> <span style="color: #a40000;">Point</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span> <span style="color: #b35000;">Name</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span> <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1082;&#1086;&#1085;&#1089;&#1090;&#1088;&#1091;&#1082;&#1090;&#1086;&#1088;</span>
+           <span style="color: #346604;">this</span>.name = Name;
+       <span style="color: #7388d6;">}</span>
+       <span style="color: #346604;">public</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">setCoords</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">double</span> <span style="color: #b35000;">inX</span>, <span style="color: #204a87;">double</span> <span style="color: #b35000;">inY</span>, <span style="color: #204a87;">double</span> <span style="color: #b35000;">inZ</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+           <span style="color: #346604;">this</span>.x = inX;
+           <span style="color: #346604;">this</span>.y = inY;
+           <span style="color: #346604;">this</span>.z = inZ;
+       <span style="color: #7388d6;">}</span>
+   <span style="color: #707183;">}</span>
 </pre>
 </div></li>
 </ul></li>
@@ -384,28 +384,28 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 <code>Main.java</code>:
 </p>
 <div class="org-src-container">
-<pre class="src src-java">   <span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> <span style="color: #51afef;">{</span>
-       <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">main</span><span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">String</span><span style="color: #98be65;">[]</span> <span style="color: #dcaeea;">args</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span>
-           <span style="color: #ECBE7B;">Point</span> <span style="color: #dcaeea;">A</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Point</span><span style="color: #98be65;">(</span><span style="color: #98be65;">"Tochka A"</span><span style="color: #98be65;">)</span>;
-           A.x = <span style="color: #da8548; font-weight: bold;">1.0</span>;
-           A.y = <span style="color: #da8548; font-weight: bold;">1.0</span>;
-           A.z = <span style="color: #da8548; font-weight: bold;">34.0</span>;
-       <span style="color: #c678dd;">}</span>
-   <span style="color: #51afef;">}</span>
+<pre class="src src-java">   <span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Main</span> <span style="color: #707183;">{</span>
+       <span style="color: #346604;">public</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">main</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span><span style="color: #909183;">[]</span> <span style="color: #b35000;">args</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+           <span style="color: #204a87;">Point</span> <span style="color: #b35000;">A</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">(</span><span style="color: #5c3566;">"Tochka A"</span><span style="color: #909183;">)</span>;
+           A.x = <span style="color: #204a87; font-weight: bold;">1.0</span>;
+           A.y = <span style="color: #204a87; font-weight: bold;">1.0</span>;
+           A.z = <span style="color: #204a87; font-weight: bold;">34.0</span>;
+       <span style="color: #7388d6;">}</span>
+   <span style="color: #707183;">}</span>
 </pre>
 </div></li>
 <li><p>
 <code>Point.java</code>:
 </p>
 <div class="org-src-container">
-<pre class="src src-java">   <span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Point</span> <span style="color: #51afef;">{</span>
-       <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">x</span>;
-       <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">y</span>;
-       <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">z</span>;
-       <span style="color: #51afef;">public</span> <span style="color: #c678dd;">Point</span><span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">String</span> <span style="color: #dcaeea;">Name</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span> <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1082;&#1086;&#1085;&#1089;&#1090;&#1088;&#1091;&#1082;&#1090;&#1086;&#1088;</span>
-           <span style="color: #51afef;">this</span>.name = Name;
-       <span style="color: #c678dd;">}</span>
-   <span style="color: #51afef;">}</span>
+<pre class="src src-java">   <span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Point</span> <span style="color: #707183;">{</span>
+       <span style="color: #346604;">public</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">x</span>;
+       <span style="color: #346604;">public</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">y</span>;
+       <span style="color: #346604;">public</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">z</span>;
+       <span style="color: #346604;">public</span> <span style="color: #a40000;">Point</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span> <span style="color: #b35000;">Name</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span> <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1082;&#1086;&#1085;&#1089;&#1090;&#1088;&#1091;&#1082;&#1090;&#1086;&#1088;</span>
+           <span style="color: #346604;">this</span>.name = Name;
+       <span style="color: #7388d6;">}</span>
+   <span style="color: #707183;">}</span>
 </pre>
 </div></li>
 </ul></li>
@@ -414,12 +414,12 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 </div>
 </div>
 </div>
-<div id="outline-container-orgde33d39" class="outline-2">
-<h2 id="orgde33d39"><span class="section-number-2">2.</span> Статические методы, статические поля.</h2>
+<div id="outline-container-org2421fdc" class="outline-2">
+<h2 id="org2421fdc"><span class="section-number-2">2.</span> Статические методы, статические поля.</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgf752d8f" class="outline-3">
-<h3 id="orgf752d8f"><span class="section-number-3">2.1.</span> Определения статического поля, экземлярного метода</h3>
+<div id="outline-container-orgb46f189" class="outline-3">
+<h3 id="orgb46f189"><span class="section-number-3">2.1.</span> Определения статического поля, экземлярного метода</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 <b>Статическое поле (static field)</b> &#x2014; это такое поле, принадлежащее некотрому
@@ -430,10 +430,10 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 <i>Пример</i>:
 </p>
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Point</span> <span style="color: #51afef;">{</span>
-    <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">x</span>, <span style="color: #dcaeea;">y</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1082;&#1086;&#1086;&#1088;&#1076;&#1080;&#1085;&#1072;&#1090;&#1099; &#1090;&#1086;&#1095;&#1082;&#1080;</span>
-    <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">count</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1086;&#1073;&#1097;&#1077;&#1077; &#1082;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1090;&#1086;&#1095;&#1077;&#1082;</span>
-<span style="color: #51afef;">}</span>;
+<pre class="src src-java"><span style="color: #346604;">class</span> <span style="color: #204a87;">Point</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">int</span> <span style="color: #b35000;">x</span>, <span style="color: #b35000;">y</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1082;&#1086;&#1086;&#1088;&#1076;&#1080;&#1085;&#1072;&#1090;&#1099; &#1090;&#1086;&#1095;&#1082;&#1080;</span>
+    <span style="color: #346604;">public</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">int</span> <span style="color: #b35000;">count</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1086;&#1073;&#1097;&#1077;&#1077; &#1082;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1090;&#1086;&#1095;&#1077;&#1082;</span>
+<span style="color: #707183;">}</span>;
 </pre>
 </div>
 
@@ -452,11 +452,11 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 <i>Пример</i>:
 </p>
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Person</span> <span style="color: #51afef;">{</span>
-    <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">String</span> <span style="color: #dcaeea;">name</span>;
-    <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">yearOfBirth</span>;
-    <span style="color: #51afef;">private</span> <span style="color: #ECBE7B;">String</span> <span style="color: #dcaeea;">address</span>;
-<span style="color: #51afef;">}</span>;
+<pre class="src src-java"><span style="color: #346604;">class</span> <span style="color: #204a87;">Person</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">String</span> <span style="color: #b35000;">name</span>;
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">int</span> <span style="color: #b35000;">yearOfBirth</span>;
+    <span style="color: #346604;">private</span> <span style="color: #204a87;">String</span> <span style="color: #b35000;">address</span>;
+<span style="color: #707183;">}</span>;
 </pre>
 </div>
 <p>
@@ -466,8 +466,8 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 </div>
 </div>
 
-<div id="outline-container-org430944d" class="outline-3">
-<h3 id="org430944d"><span class="section-number-3">2.2.</span> Виды модификаторов</h3>
+<div id="outline-container-org5f8f131" class="outline-3">
+<h3 id="org5f8f131"><span class="section-number-3">2.2.</span> Виды модификаторов</h3>
 <div class="outline-text-3" id="text-2-2">
 <ol class="org-ol">
 <li><code>private</code> <br />
@@ -482,17 +482,17 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 </ol>
 </div>
 </div>
-<div id="outline-container-org6ef7e0e" class="outline-3">
-<h3 id="org6ef7e0e"><span class="section-number-3">2.3.</span> Перегрузка методов</h3>
+<div id="outline-container-org24a34bd" class="outline-3">
+<h3 id="org24a34bd"><span class="section-number-3">2.3.</span> Перегрузка методов</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Конструктор не указан. Создается конструктор по умолчанию:
 </p>
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Cat</span> <span style="color: #51afef;">{</span>
-    <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">String</span> <span style="color: #dcaeea;">name</span>;
-    <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">age</span>;
-<span style="color: #51afef;">}</span>;
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Cat</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">String</span> <span style="color: #b35000;">name</span>;
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">int</span> <span style="color: #b35000;">age</span>;
+<span style="color: #707183;">}</span>;
 </pre>
 </div>
 
@@ -500,11 +500,11 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 Явно указан конструктор по умолчанию:
 </p>
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Cat</span> <span style="color: #51afef;">{</span>
-    <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">String</span> <span style="color: #dcaeea;">name</span>;
-    <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">age</span>;
-    <span style="color: #51afef;">public</span> <span style="color: #c678dd;">Cat</span><span style="color: #c678dd;">()</span> <span style="color: #c678dd;">{}</span>
-<span style="color: #51afef;">}</span>;
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Cat</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">String</span> <span style="color: #b35000;">name</span>;
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">int</span> <span style="color: #b35000;">age</span>;
+    <span style="color: #346604;">public</span> <span style="color: #a40000;">Cat</span><span style="color: #7388d6;">()</span> <span style="color: #7388d6;">{}</span>
+<span style="color: #707183;">}</span>;
 </pre>
 </div>
 
@@ -512,15 +512,15 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 Перегрузка конструктора:
 </p>
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Cat</span> <span style="color: #51afef;">{</span>
-    <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">String</span> <span style="color: #dcaeea;">name</span>;
-    <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">age</span>;
-    <span style="color: #51afef;">public</span> <span style="color: #c678dd;">Cat</span><span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">String</span> <span style="color: #dcaeea;">name</span>, <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">age</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span>
-        <span style="color: #51afef;">this</span>.name = name;
-        <span style="color: #51afef;">this</span>.age = age;
-    <span style="color: #c678dd;">}</span>
-    <span style="color: #51afef;">public</span> <span style="color: #c678dd;">Cat</span><span style="color: #c678dd;">()</span> <span style="color: #c678dd;">{}</span>
-<span style="color: #51afef;">}</span>;
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Cat</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">String</span> <span style="color: #b35000;">name</span>;
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">int</span> <span style="color: #b35000;">age</span>;
+    <span style="color: #346604;">public</span> <span style="color: #a40000;">Cat</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span> <span style="color: #b35000;">name</span>, <span style="color: #204a87;">int</span> <span style="color: #b35000;">age</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #346604;">this</span>.name = name;
+        <span style="color: #346604;">this</span>.age = age;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #346604;">public</span> <span style="color: #a40000;">Cat</span><span style="color: #7388d6;">()</span> <span style="color: #7388d6;">{}</span>
+<span style="color: #707183;">}</span>;
 </pre>
 </div>
 <p>
@@ -531,15 +531,15 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 <i>Примеры</i> создания объекта класса <code>Cat</code>:
 </p>
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #ECBE7B;">Cat</span> <span style="color: #dcaeea;">A</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Cat</span><span style="color: #51afef;">()</span>;
-<span style="color: #ECBE7B;">Cat</span> <span style="color: #dcaeea;">B</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Cat</span><span style="color: #51afef;">(</span><span style="color: #98be65;">"Meow"</span>, <span style="color: #da8548; font-weight: bold;">5</span><span style="color: #51afef;">)</span>;
+<pre class="src src-java"><span style="color: #204a87;">Cat</span> <span style="color: #b35000;">A</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Cat</span><span style="color: #707183;">()</span>;
+<span style="color: #204a87;">Cat</span> <span style="color: #b35000;">B</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Cat</span><span style="color: #707183;">(</span><span style="color: #5c3566;">"Meow"</span>, <span style="color: #204a87; font-weight: bold;">5</span><span style="color: #707183;">)</span>;
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org02a7a85" class="outline-3">
-<h3 id="org02a7a85"><span class="section-number-3">2.4.</span> Статические методы</h3>
+<div id="outline-container-org53e697e" class="outline-3">
+<h3 id="org53e697e"><span class="section-number-3">2.4.</span> Статические методы</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 <b>Статический метод (static method)</b> &#x2014; метод, не имеющий доступа к внутреннему
@@ -561,48 +561,48 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 <i>Примеры</i>:
 </p>
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Point</span> <span style="color: #51afef;">{</span>
-    <span style="color: #51afef;">private</span> <span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">x</span>;
-    <span style="color: #51afef;">private</span> <span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">y</span>;
-    <span style="color: #51afef;">private</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">n</span>;
-    <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">val</span>;
-    <span style="color: #51afef;">public</span> <span style="color: #c678dd;">Point</span><span style="color: #c678dd;">()</span> <span style="color: #c678dd;">{</span>
-        <span style="color: #51afef;">this</span>.n = <span style="color: #da8548; font-weight: bold;">10</span>;
-        <span style="color: #51afef;">this</span>.val = <span style="color: #da8548; font-weight: bold;">100</span>;
-    <span style="color: #c678dd;">}</span>
-    <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">setCoords</span><span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">varX</span>, <span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">varY</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span>
-        <span style="color: #51afef;">this</span>.x = varX;
-        <span style="color: #51afef;">this</span>.y = varY;
-    <span style="color: #c678dd;">}</span>
-    <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">double</span> <span style="color: #c678dd;">getN</span><span style="color: #c678dd;">()</span> <span style="color: #c678dd;">{</span>
-        <span style="color: #51afef;">return</span> <span style="color: #51afef;">this</span>.n;
-    <span style="color: #c678dd;">}</span>
-    <span style="color: #51afef;">public</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">setN</span><span style="color: #c678dd;">()</span> <span style="color: #c678dd;">{</span>
-        <span style="color: #51afef;">this</span>.n = <span style="color: #da8548; font-weight: bold;">100</span>;
-    <span style="color: #c678dd;">}</span>
-<span style="color: #51afef;">}</span>;
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Point</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">private</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">x</span>;
+    <span style="color: #346604;">private</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">y</span>;
+    <span style="color: #346604;">private</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">int</span> <span style="color: #b35000;">n</span>;
+    <span style="color: #346604;">public</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">int</span> <span style="color: #b35000;">val</span>;
+    <span style="color: #346604;">public</span> <span style="color: #a40000;">Point</span><span style="color: #7388d6;">()</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #346604;">this</span>.n = <span style="color: #204a87; font-weight: bold;">10</span>;
+        <span style="color: #346604;">this</span>.val = <span style="color: #204a87; font-weight: bold;">100</span>;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">setCoords</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">double</span> <span style="color: #b35000;">varX</span>, <span style="color: #204a87;">double</span> <span style="color: #b35000;">varY</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #346604;">this</span>.x = varX;
+        <span style="color: #346604;">this</span>.y = varY;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">double</span> <span style="color: #a40000;">getN</span><span style="color: #7388d6;">()</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #346604;">return</span> <span style="color: #346604;">this</span>.n;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #346604;">public</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">setN</span><span style="color: #7388d6;">()</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #346604;">this</span>.n = <span style="color: #204a87; font-weight: bold;">100</span>;
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>;
 </pre>
 </div>
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> <span style="color: #51afef;">{</span>
-    <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">main</span><span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">String</span><span style="color: #98be65;">[]</span> <span style="color: #dcaeea;">args</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span>
-       <span style="color: #ECBE7B;">Point</span> <span style="color: #dcaeea;">PointA</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Point</span><span style="color: #98be65;">()</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">n = 10, val = 100</span>
-        PointA.n = <span style="color: #da8548; font-weight: bold;">242</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1086;&#1096;&#1080;&#1073;&#1082;&#1072;, &#1090;.&#1082;. &#1087;&#1086;&#1083;&#1077; private</span>
-        Point.n = <span style="color: #da8548; font-weight: bold;">100</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1086;&#1096;&#1080;&#1073;&#1082;&#1072;, &#1090;.&#1082;. &#1087;&#1086;&#1083;&#1077; private</span>
-        Point.val = <span style="color: #da8548; font-weight: bold;">200</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1074;&#1077;&#1088;&#1085;&#1086;, &#1086;&#1073;&#1088;&#1072;&#1097;&#1077;&#1085;&#1080;&#1077; &#1082; static &#1087;&#1086;&#1083;&#1102; &#1095;&#1077;&#1088;&#1077;&#1079; &#1080;&#1084;&#1103; &#1082;&#1083;&#1072;&#1089;&#1089;&#1072;</span>
-        <span style="color: #5B6268;">// </span><span style="color: #5B6268;">n = 10, val = 100</span>
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Main</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">public</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">main</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span><span style="color: #909183;">[]</span> <span style="color: #b35000;">args</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+       <span style="color: #204a87;">Point</span> <span style="color: #b35000;">PointA</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">()</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">n = 10, val = 100</span>
+        PointA.n = <span style="color: #204a87; font-weight: bold;">242</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1086;&#1096;&#1080;&#1073;&#1082;&#1072;, &#1090;.&#1082;. &#1087;&#1086;&#1083;&#1077; private</span>
+        Point.n = <span style="color: #204a87; font-weight: bold;">100</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1086;&#1096;&#1080;&#1073;&#1082;&#1072;, &#1090;.&#1082;. &#1087;&#1086;&#1083;&#1077; private</span>
+        Point.val = <span style="color: #204a87; font-weight: bold;">200</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1074;&#1077;&#1088;&#1085;&#1086;, &#1086;&#1073;&#1088;&#1072;&#1097;&#1077;&#1085;&#1080;&#1077; &#1082; static &#1087;&#1086;&#1083;&#1102; &#1095;&#1077;&#1088;&#1077;&#1079; &#1080;&#1084;&#1103; &#1082;&#1083;&#1072;&#1089;&#1089;&#1072;</span>
+        <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">n = 10, val = 100</span>
 
-        <span style="color: #ECBE7B;">Point</span> <span style="color: #dcaeea;">PointB</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Point</span><span style="color: #98be65;">()</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">n = 10, val = 100</span>
-        PointA.setN<span style="color: #98be65;">()</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">n = 100, val = 100</span>
-    <span style="color: #c678dd;">}</span>
-<span style="color: #51afef;">}</span>;
+        <span style="color: #204a87;">Point</span> <span style="color: #b35000;">PointB</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">()</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">n = 10, val = 100</span>
+        PointA.setN<span style="color: #909183;">()</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">n = 100, val = 100</span>
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>;
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org452070c" class="outline-3">
-<h3 id="org452070c"><span class="section-number-3">2.5.</span> Статические блоки</h3>
+<div id="outline-container-orga684ea0" class="outline-3">
+<h3 id="orga684ea0"><span class="section-number-3">2.5.</span> Статические блоки</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 <b>Статический блок (static-блоки)</b> &#x2014; код, расположенный в статическом блоке,
@@ -611,35 +611,35 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
  экземляров, вызова статических методов и обращения к ним и т.д.).
 </p>
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">A</span> <span style="color: #51afef;">{</span>
-    <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">Date</span> <span style="color: #dcaeea;">timeStart</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1074;&#1088;&#1077;&#1084;&#1103; &#1079;&#1072;&#1087;&#1091;&#1089;&#1082;&#1072; &#1087;&#1088;&#1086;&#1075;&#1088;&#1072;&#1084;&#1084;&#1099;</span>
-    <span style="color: #ECBE7B;">Date</span> <span style="color: #dcaeea;">timeStartObj</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1074;&#1088;&#1077;&#1084;&#1103; &#1080;&#1085;&#1080;&#1094;&#1080;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1080; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1072;</span>
-    <span style="color: #51afef;">static</span> <span style="color: #c678dd;">{</span>
-        timeStart = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Date</span><span style="color: #98be65;">()</span>;
-    <span style="color: #c678dd;">}</span>
-    <span style="color: #51afef;">public</span> <span style="color: #c678dd;">A</span><span style="color: #c678dd;">()</span> <span style="color: #c678dd;">{</span>
-        timeStartObj = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Date</span><span style="color: #98be65;">()</span>;
-    <span style="color: #c678dd;">}</span>
-<span style="color: #51afef;">}</span>;
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">A</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">static</span> <span style="color: #204a87;">Date</span> <span style="color: #b35000;">timeStart</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1074;&#1088;&#1077;&#1084;&#1103; &#1079;&#1072;&#1087;&#1091;&#1089;&#1082;&#1072; &#1087;&#1088;&#1086;&#1075;&#1088;&#1072;&#1084;&#1084;&#1099;</span>
+    <span style="color: #204a87;">Date</span> <span style="color: #b35000;">timeStartObj</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1074;&#1088;&#1077;&#1084;&#1103; &#1080;&#1085;&#1080;&#1094;&#1080;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1080; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1072;</span>
+    <span style="color: #346604;">static</span> <span style="color: #7388d6;">{</span>
+        timeStart = <span style="color: #346604;">new</span> <span style="color: #204a87;">Date</span><span style="color: #909183;">()</span>;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #346604;">public</span> <span style="color: #a40000;">A</span><span style="color: #7388d6;">()</span> <span style="color: #7388d6;">{</span>
+        timeStartObj = <span style="color: #346604;">new</span> <span style="color: #204a87;">Date</span><span style="color: #909183;">()</span>;
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>;
 </pre>
 </div>
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> <span style="color: #51afef;">{</span>
-    <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">main</span><span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">String</span><span style="color: #98be65;">[]</span> <span style="color: #dcaeea;">args</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span>
-        <span style="color: #ECBE7B;">A</span> <span style="color: #dcaeea;">a</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">A</span><span style="color: #98be65;">()</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">timeStart != timeStartObj</span>
-    <span style="color: #c678dd;">}</span>
-<span style="color: #51afef;">}</span>;
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Main</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">public</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">main</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span><span style="color: #909183;">[]</span> <span style="color: #b35000;">args</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #204a87;">A</span> <span style="color: #b35000;">a</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">A</span><span style="color: #909183;">()</span>; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">timeStart != timeStartObj</span>
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>;
 </pre>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-org5e57741" class="outline-2">
-<h2 id="org5e57741"><span class="section-number-2">3.</span> Статические поля, методы, блоки.</h2>
+<div id="outline-container-org416d38e" class="outline-2">
+<h2 id="org416d38e"><span class="section-number-2">3.</span> Статические поля, методы, блоки.</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org3153823" class="outline-3">
-<h3 id="org3153823"><span class="section-number-3">3.1.</span> Доступ к статическим полям</h3>
+<div id="outline-container-orgd377f27" class="outline-3">
+<h3 id="orgd377f27"><span class="section-number-3">3.1.</span> Доступ к статическим полям</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 <b>Утверждение</b>: если экземплярное поле является статичным, то это значение
@@ -656,38 +656,38 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 <i>Пример</i>:
 </p>
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Point</span> <span style="color: #51afef;">{</span>
-    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">... &#1086;&#1073;&#1098;&#1103;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103; &#1087;&#1086;&#1083;&#1077;&#1081;</span>
-    <span style="color: #51afef;">private</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">y</span>;
-    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">...</span>
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Point</span> <span style="color: #707183;">{</span>
+    <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">... &#1086;&#1073;&#1098;&#1103;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103; &#1087;&#1086;&#1083;&#1077;&#1081;</span>
+    <span style="color: #346604;">private</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">double</span> <span style="color: #b35000;">y</span>;
+    <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">...</span>
 
-    <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">setY</span><span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">varY</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span>
-        y = varY; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">this.y = varY - &#1085;&#1077;&#1083;&#1100;&#1079;&#1103;</span>
-    <span style="color: #c678dd;">}</span>
-<span style="color: #51afef;">}</span>;
+    <span style="color: #346604;">public</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">setY</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">double</span> <span style="color: #b35000;">varY</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        y = varY; <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">this.y = varY - &#1085;&#1077;&#1083;&#1100;&#1079;&#1103;</span>
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>;
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org091c8cf" class="outline-3">
-<h3 id="org091c8cf"><span class="section-number-3">3.2.</span> Пример использования массивов объектов</h3>
+<div id="outline-container-org1c4c152" class="outline-3">
+<h3 id="org1c4c152"><span class="section-number-3">3.2.</span> Пример использования массивов объектов</h3>
 <div class="outline-text-3" id="text-3-2">
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #51afef;">public</span> <span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Main</span> <span style="color: #51afef;">{</span>
-    <span style="color: #51afef;">public</span> <span style="color: #51afef;">static</span> <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">main</span><span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">String</span><span style="color: #98be65;">[]</span> <span style="color: #dcaeea;">args</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span>
-        <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1054;&#1073;&#1098;&#1077;&#1082;&#1090;&#1099; &#1082;&#1083;&#1072;&#1089;&#1089;&#1072; Point</span>
-        <span style="color: #ECBE7B;">Point</span> <span style="color: #dcaeea;">A</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Point</span><span style="color: #98be65;">(</span><span style="color: #98be65;">"A"</span>, <span style="color: #da8548; font-weight: bold;">5</span>, <span style="color: #da8548; font-weight: bold;">4</span><span style="color: #98be65;">)</span>;
-        <span style="color: #ECBE7B;">Point</span> <span style="color: #dcaeea;">B</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Point</span><span style="color: #98be65;">(</span><span style="color: #98be65;">"B"</span>, <span style="color: #da8548; font-weight: bold;">100</span>, <span style="color: #da8548; font-weight: bold;">100</span><span style="color: #98be65;">)</span>;
+<pre class="src src-java"><span style="color: #346604;">public</span> <span style="color: #346604;">class</span> <span style="color: #204a87;">Main</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">public</span> <span style="color: #346604;">static</span> <span style="color: #204a87;">void</span> <span style="color: #a40000;">main</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span><span style="color: #909183;">[]</span> <span style="color: #b35000;">args</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1054;&#1073;&#1098;&#1077;&#1082;&#1090;&#1099; &#1082;&#1083;&#1072;&#1089;&#1089;&#1072; Point</span>
+        <span style="color: #204a87;">Point</span> <span style="color: #b35000;">A</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">(</span><span style="color: #5c3566;">"A"</span>, <span style="color: #204a87; font-weight: bold;">5</span>, <span style="color: #204a87; font-weight: bold;">4</span><span style="color: #909183;">)</span>;
+        <span style="color: #204a87;">Point</span> <span style="color: #b35000;">B</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">(</span><span style="color: #5c3566;">"B"</span>, <span style="color: #204a87; font-weight: bold;">100</span>, <span style="color: #204a87; font-weight: bold;">100</span><span style="color: #909183;">)</span>;
 
-        <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1054;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1077;&#1085;&#1080;&#1077; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1072; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1086;&#1074; &#1080;&#1079; 100 &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1086;&#1074;</span>
-        <span style="color: #ECBE7B;">Point</span><span style="color: #98be65;">[]</span> <span style="color: #dcaeea;">points</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Point</span><span style="color: #98be65;">[</span><span style="color: #da8548; font-weight: bold;">100</span><span style="color: #98be65;">]</span>;
-        <span style="color: #5B6268;">//      </span><span style="color: #5B6268;">~~~~~~ - &#1080;&#1084;&#1103; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1072; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1086;&#1074;</span>
-        points<span style="color: #98be65;">[</span><span style="color: #da8548; font-weight: bold;">0</span><span style="color: #98be65;">]</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Point</span><span style="color: #98be65;">(</span><span style="color: #98be65;">"AA"</span>, <span style="color: #da8548; font-weight: bold;">2</span>, <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #98be65;">)</span>;
-        points<span style="color: #98be65;">[</span><span style="color: #da8548; font-weight: bold;">1</span><span style="color: #98be65;">]</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Point</span><span style="color: #98be65;">(</span><span style="color: #98be65;">"BB"</span>, <span style="color: #da8548; font-weight: bold;">34</span>, <span style="color: #da8548; font-weight: bold;">48</span><span style="color: #98be65;">)</span>;
-        <span style="color: #5B6268;">// </span><span style="color: #5B6268;">...</span>
-    <span style="color: #c678dd;">}</span>
-<span style="color: #51afef;">}</span>;
+        <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">&#1054;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1077;&#1085;&#1080;&#1077; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1072; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1086;&#1074; &#1080;&#1079; 100 &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1086;&#1074;</span>
+        <span style="color: #204a87;">Point</span><span style="color: #909183;">[]</span> <span style="color: #b35000;">points</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">[</span><span style="color: #204a87; font-weight: bold;">100</span><span style="color: #909183;">]</span>;
+        <span style="color: #5f615c; font-style: italic;">//      </span><span style="color: #5f615c; font-style: italic;">~~~~~~ - &#1080;&#1084;&#1103; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1072; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1086;&#1074;</span>
+        points<span style="color: #909183;">[</span><span style="color: #204a87; font-weight: bold;">0</span><span style="color: #909183;">]</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">(</span><span style="color: #5c3566;">"AA"</span>, <span style="color: #204a87; font-weight: bold;">2</span>, <span style="color: #204a87; font-weight: bold;">1</span><span style="color: #909183;">)</span>;
+        points<span style="color: #909183;">[</span><span style="color: #204a87; font-weight: bold;">1</span><span style="color: #909183;">]</span> = <span style="color: #346604;">new</span> <span style="color: #204a87;">Point</span><span style="color: #909183;">(</span><span style="color: #5c3566;">"BB"</span>, <span style="color: #204a87; font-weight: bold;">34</span>, <span style="color: #204a87; font-weight: bold;">48</span><span style="color: #909183;">)</span>;
+        <span style="color: #5f615c; font-style: italic;">// </span><span style="color: #5f615c; font-style: italic;">...</span>
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>;
 </pre>
 </div>
 
@@ -703,8 +703,8 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 </div>
 </div>
 
-<div id="outline-container-org5f62a3e" class="outline-3">
-<h3 id="org5f62a3e"><span class="section-number-3">3.3.</span> Перегрузка методов</h3>
+<div id="outline-container-org36cfe5f" class="outline-3">
+<h3 id="org36cfe5f"><span class="section-number-3">3.3.</span> Перегрузка методов</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 <b>Сигнатура метода (method signature)</b> &#x2014; информация о количестве и типах
@@ -729,8 +729,8 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 </div>
 </div>
 
-<div id="outline-container-orgbc9d090" class="outline-3">
-<h3 id="orgbc9d090"><span class="section-number-3">3.4.</span> Виртуальные методы</h3>
+<div id="outline-container-org6797e3e" class="outline-3">
+<h3 id="org6797e3e"><span class="section-number-3">3.4.</span> Виртуальные методы</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 <b>Раннее связывание (early binding)</b> &#x2014; определение адреса вызываемого
@@ -768,8 +768,8 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 </div>
 </div>
 
-<div id="outline-container-org7b04735" class="outline-3">
-<h3 id="org7b04735"><span class="section-number-3">3.5.</span> Перегрузка экземплярного конструктора</h3>
+<div id="outline-container-org53378a7" class="outline-3">
+<h3 id="org53378a7"><span class="section-number-3">3.5.</span> Перегрузка экземплярного конструктора</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 <b>Экземплярный конструктор (instance constructor)</b> &#x2014; экземплярный метод,
@@ -812,12 +812,12 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 </div>
 </div>
 </div>
-<div id="outline-container-org496b809" class="outline-2">
-<h2 id="org496b809"><span class="section-number-2">4.</span> Наследование, субтипизация</h2>
+<div id="outline-container-org80e56c6" class="outline-2">
+<h2 id="org80e56c6"><span class="section-number-2">4.</span> Наследование, субтипизация</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orge955214" class="outline-3">
-<h3 id="orge955214"><span class="section-number-3">4.1.</span> Понятие субтипизации</h3>
+<div id="outline-container-org06c90b0" class="outline-3">
+<h3 id="org06c90b0"><span class="section-number-3">4.1.</span> Понятие субтипизации</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Пусть тип данных <code>A</code> является <b>подтипом (subtype)</b> для типа данных
@@ -829,8 +829,8 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 <i>Пример</i>:
 </p>
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #51afef;">for</span> <span style="color: #51afef;">(</span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">i</span> = <span style="color: #da8548; font-weight: bold;">0</span>; i &lt; <span style="color: #da8548; font-weight: bold;">10</span>; i++<span style="color: #51afef;">)</span> <span style="color: #51afef;">{}</span>
-<span style="color: #51afef;">for</span> <span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double</span> <span style="color: #dcaeea;">i</span> = <span style="color: #da8548; font-weight: bold;">0</span>; i &lt; <span style="color: #da8548; font-weight: bold;">10</span>; i++<span style="color: #51afef;">)</span> <span style="color: #51afef;">{}</span>
+<pre class="src src-java"><span style="color: #346604;">for</span> <span style="color: #707183;">(</span><span style="color: #204a87;">int</span> <span style="color: #b35000;">i</span> = <span style="color: #204a87; font-weight: bold;">0</span>; i &lt; <span style="color: #204a87; font-weight: bold;">10</span>; i++<span style="color: #707183;">)</span> <span style="color: #707183;">{}</span>
+<span style="color: #346604;">for</span> <span style="color: #707183;">(</span><span style="color: #204a87;">double</span> <span style="color: #b35000;">i</span> = <span style="color: #204a87; font-weight: bold;">0</span>; i &lt; <span style="color: #204a87; font-weight: bold;">10</span>; i++<span style="color: #707183;">)</span> <span style="color: #707183;">{}</span>
 </pre>
 </div>
 <p>
@@ -857,8 +857,8 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 </div>
 </div>
 
-<div id="outline-container-orgd6c7ec3" class="outline-3">
-<h3 id="orgd6c7ec3"><span class="section-number-3">4.2.</span> Явная и неявная типизация</h3>
+<div id="outline-container-org1018131" class="outline-3">
+<h3 id="org1018131"><span class="section-number-3">4.2.</span> Явная и неявная типизация</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 <b>Неявная типизация</b> &#x2014; выбор типа на основе анализа структуры значения. (или выведение типа в статически типизированных языках)
@@ -871,8 +871,8 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 </div>
 </div>
 
-<div id="outline-container-orgdcc6e4f" class="outline-3">
-<h3 id="orgdcc6e4f"><span class="section-number-3">4.3.</span> Наследование как механизм явной субтипизации</h3>
+<div id="outline-container-orgf3fa467" class="outline-3">
+<h3 id="orgf3fa467"><span class="section-number-3">4.3.</span> Наследование как механизм явной субтипизации</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 <b>Наследование (inheritance)</b> &#x2014; это способ получения нового класса на основе
@@ -908,8 +908,8 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 </div>
 </div>
 
-<div id="outline-container-org335b614" class="outline-3">
-<h3 id="org335b614"><span class="section-number-3">4.4.</span> Абстрактные классы и интерфейсы</h3>
+<div id="outline-container-orgae766ab" class="outline-3">
+<h3 id="orgae766ab"><span class="section-number-3">4.4.</span> Абстрактные классы и интерфейсы</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 Альтернативой множественному наследованию в <code>Java</code> являются:
@@ -923,9 +923,9 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 <i>Пример</i>:
 </p>
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">&#1055;&#1088;&#1086;&#1080;&#1079;&#1074;&#1086;&#1076;&#1085;&#1099;&#1081;&#1050;&#1083;&#1072;&#1089;&#1089;</span> <span style="color: #51afef;">extends</span> <span style="color: #ECBE7B;">&#1041;&#1072;&#1079;&#1086;&#1074;&#1099;&#1081;&#1050;&#1083;&#1072;&#1089;&#1089;</span> <span style="color: #51afef;">{</span>
+<pre class="src src-java"><span style="color: #346604;">class</span> <span style="color: #204a87;">&#1055;&#1088;&#1086;&#1080;&#1079;&#1074;&#1086;&#1076;&#1085;&#1099;&#1081;&#1050;&#1083;&#1072;&#1089;&#1089;</span> <span style="color: #346604;">extends</span> <span style="color: #204a87;">&#1041;&#1072;&#1079;&#1086;&#1074;&#1099;&#1081;&#1050;&#1083;&#1072;&#1089;&#1089;</span> <span style="color: #707183;">{</span>
     ...
-<span style="color: #51afef;">}</span>
+<span style="color: #707183;">}</span>
 </pre>
 </div>
 
@@ -949,27 +949,27 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 <i>Пример</i>:
 </p>
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #51afef;">class</span> <span style="color: #ECBE7B;">Animal</span> <span style="color: #51afef;">{</span>
-    <span style="color: #51afef;">private</span> <span style="color: #ECBE7B;">String</span> <span style="color: #dcaeea;">species</span>;
-    <span style="color: #51afef;">public</span> <span style="color: #c678dd;">Animal</span><span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">String</span> <span style="color: #dcaeea;">species</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span>
-        <span style="color: #51afef;">this</span>.species = species;
-    <span style="color: #c678dd;">}</span>
-<span style="color: #51afef;">}</span>;
+<pre class="src src-java"><span style="color: #346604;">class</span> <span style="color: #204a87;">Animal</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">private</span> <span style="color: #204a87;">String</span> <span style="color: #b35000;">species</span>;
+    <span style="color: #346604;">public</span> <span style="color: #a40000;">Animal</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span> <span style="color: #b35000;">species</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #346604;">this</span>.species = species;
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>;
 
-<span style="color: #51afef;">class</span> Dog <span style="color: #ECBE7B;">extents</span> <span style="color: #ECBE7B;">Animal</span> <span style="color: #51afef;">{</span>
-    <span style="color: #51afef;">private</span> <span style="color: #ECBE7B;">String</span> <span style="color: #dcaeea;">breed</span>;
-    <span style="color: #51afef;">public</span> <span style="color: #c678dd;">Dog</span><span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">String</span> <span style="color: #dcaeea;">breed</span><span style="color: #c678dd;">)</span> <span style="color: #c678dd;">{</span>
-        <span style="color: #51afef;">super</span><span style="color: #98be65;">(</span><span style="color: #98be65;">"Sobaka"</span><span style="color: #98be65;">)</span>;
-        <span style="color: #51afef;">this</span>.breed = breed;
-    <span style="color: #c678dd;">}</span>
-<span style="color: #51afef;">}</span>;
+<span style="color: #346604;">class</span> Dog <span style="color: #204a87;">extents</span> <span style="color: #204a87;">Animal</span> <span style="color: #707183;">{</span>
+    <span style="color: #346604;">private</span> <span style="color: #204a87;">String</span> <span style="color: #b35000;">breed</span>;
+    <span style="color: #346604;">public</span> <span style="color: #a40000;">Dog</span><span style="color: #7388d6;">(</span><span style="color: #204a87;">String</span> <span style="color: #b35000;">breed</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #346604;">super</span><span style="color: #909183;">(</span><span style="color: #5c3566;">"Sobaka"</span><span style="color: #909183;">)</span>;
+        <span style="color: #346604;">this</span>.breed = breed;
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>;
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org760e8ad" class="outline-3">
-<h3 id="org760e8ad"><span class="section-number-3">4.5.</span> Неявное и явное приведение типов</h3>
+<div id="outline-container-org33a68d7" class="outline-3">
+<h3 id="org33a68d7"><span class="section-number-3">4.5.</span> Неявное и явное приведение типов</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 <i>Замечание</i>: <b>неявное</b> приведение типов происходит тогда, когда два типа
@@ -995,7 +995,7 @@ get_r<span style="color: #51afef;">(</span><span style="color: #ECBE7B;">double<
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Starovoytov Alexandr</p>
-<p class="date">Created: 2022-03-06 Sun 00:14</p>
+<p class="date">Created: 2022-03-06 Sun 00:21</p>
 </div>
 </body>
 </html>
