@@ -15,6 +15,6 @@ create:
 	mkdir $(task) && cd $(task) && ln -sr ../Makefile ./ && touch Test.java
 
 clean:
-	-rm -r out/ *.class
+	-find -regex '.*class' | xargs rm -r out/
 
 .PHONY: all test clean
