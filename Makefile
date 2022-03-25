@@ -17,4 +17,4 @@ create:
 clean:
 	-find -regex '.*class' | xargs rm -r out/
 
-.PHONY: all test clean
+.PHONY: all test clean create

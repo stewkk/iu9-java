@@ -502,3 +502,132 @@ public class Main {
     }
 }
 #+end_src
+
+** Пример приведения типов
+#+begin_src java
+public class Animal {
+    public String species;
+    public Animal(String species) {
+        this.species = species;
+    }
+    public String getSpecies() {
+        return this.species;
+    }
+}
+#+end_src
+#+begin_src java
+public class Dog extends Animal {
+    public String breed;
+    public Dog(String breed) {
+        super("Sobaka");
+        this.breed = breed;
+    }
+    public String getBreed() {
+        return this.breed;
+    }
+#+end_src
+#+begin_src java
+public class Cat extends Animal {
+    public String breed;
+    public Dog(String breed) {
+        super("Koshka");
+        this.breed = breed;
+    }
+    public String getBreed() {
+        return this.breed;
+    }
+#+end_src
+#+begin_src java
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Dog("Buldog"); // расширение
+        Animal b = new Cat("Maincun");
+        // нельзя обращаться к a.getBreed() и к b.getBreed()
+
+        Dog x = (Dog)a; // сужение типа
+        Cat y = (Cat)b;
+        // информация о том, что x - это Buldog, а y - Maincun не теряется
+
+        Dog z = (Dog)b; // Ошбика ClassCastException
+    }
+}
+#+end_src
+* Переопределение методов
+  *Переопределение метода (Method overriding)* --- это замена тела экземплярного
+  метода базового класса в производном классе, позволяющая объекту производного
+  класса по-другому обрабатывать сообщение.
+
+  /Пример/:
+  #+begin_src java
+class Animal {
+    private String specie;
+    public Animal();
+    public void speak() {
+        System.out.println("...");
+    }
+}
+  #+end_src
+  #+begin_src java
+class Dog extends Animal {
+    private String breed;
+    public Dog();
+    public void speak() {
+        System.out.println("Gav");
+    }
+}
+  #+end_src
+
+  /Замечание/: следует различать переопределение метода от перегрузки метода.
+
+  /Замечание/: переопределение метода возможно только при позднем связывании.
+
+  * Абстрактные классы и интерфейсы
+  *Абстрактный метод (abstract method)* --- виртуальный метод, который не имеет
+  тела. Тело такого метода должно быть переопределено в производных классах.
+
+  /Пример/:
+  #+begin_src java
+abstract class Animal {
+    private String species;
+    public Animal(String species) {
+        this.species = species;
+    }
+    public abstract void speak();
+}
+  #+end_src
+  #+begin_src java
+class Dog extends Animal {
+    publis String breed;
+    public Dog(...) {
+        ...
+    }
+    public void speak() {
+        System.out.println("Gav");
+    }
+}
+  #+end_src
+
+  *Абстрактный класс (Abstract class)* --- класс, имеющий абстрактные методы
+  которые объявлены в нем самом, либо унаследованы от базовых классов и не
+  переопределены.
+
+  *Интерфейс (Interface)* --- тип данных, который представляет из себя набор
+  абстрактных методов.
+
+  /Пример/ геометрическая фигура с координатами x, y и возможностью перемещения:
+  #+begin_src java
+abstract class MovableShape {
+    public abstract double x();
+    public abstract double y();
+    public abstract void move(double x, double y);
+}
+  #+end_src
+
+  #+begin_src java
+interface MovableShape {
+    double x();
+    double y();
+    void move(double x, double y);
+}
+  #+end_src
+
