@@ -2,6 +2,8 @@
 
 #set terminal postscript
 #set output '| ps2pdf - output.pdf'
+#set terminal epslatex
+#set output "plot.tex"
 set key off
 file='plot.dat'
 stats file nooutput

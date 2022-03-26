@@ -22,6 +22,7 @@ public class Universe {
                              + Math.pow(this.z - p.z, 2));
         }
 
+        @Override
         public String toString() {
             return x + " " + y + " " + z;
         }
@@ -68,12 +69,13 @@ public class Universe {
             }
         }
 
+        @Override
         public String toString() {
             return m + " " + pos + " " + v;
         }
 
         private Point calcF(Particle p) {
-            final double G = 6.673e-11;
+            final double G = 6.67430e-11;
             double r = this.pos.calcDist(p.pos);
             double modF = G * this.m * p.m / (r*r);
             Point F = new Point(p.pos.x - this.pos.x,

@@ -1,0 +1,319 @@
+* Цели
+
+Реализовать модель вселенной.
+Каждый элемент вселенной должен быть объектом некоего публичного класса, который инициализируется вспомогательным публичным классом порождающим эту вселенную.
+При инициализации экземпляров класса частиц моделируемой вселенной необходимо подсчитывать количество частиц вселенной используя статичное экземплярное поле защищенное от изменения из объектов внешних классов путем реализации статичного метода.
+Сформировать исходные данные и определить необходимые экземплярные поля для хранения состояния объектов частиц вселенной в соответствии с условием задачи и реализовать расчет.
+
+Моделировать движение материальных точек под действием силы гравитационного взаимодействия.
+Полученные данные визуализировать в виде трехмерного графика с помощью ~gnuplot~.
+
+* Задачи
+
+Расчет траекторий материальных точек вселенных и их визуализация с использованием ~gnuplot~.
+Построение модели Солнце--Земля.
+
+* Решение
+** ~Test.java~
+
+Объявим класс для тестирования:
+#+begin_src java
+public class test {
+    public static void main(string[] args) {
+#+end_src
+Создадим новую вселенную:
+#+begin_src java
+        Universe universe = new Universe();
+#+end_src
+Добавим в эту вселенную материальную точку --- модель Солнца:
+| Начальные координаты, м | Начальная скорость, м/с | Масса, кг        |
+|-------------------------+-------------------------+------------------|
+| $(0, 0, 0)$             | $(0, 0, 0)$             | $1,9885*10^{30}$ |
+#+begin_src java
+        universe.add(0, 0, 0, 0, 0, 0, 1.989e30); // солнце
+#+end_src
+И модель Земли:
+| Начальные координаты, м  | Начальная скорость, м/с | Масса, кг        |
+|--------------------------+-------------------------+------------------|
+| $(147098290*10^3, 0, 0)$ | $(0, 30270, 0)$         | $5,9726*10^{24}$ |
+
+#+begin_src java
+        universe.add(147098290e3, 0, 0, 0, 30270, 0, 5.972e24); // земля
+#+end_src
+Далее, построим траектории движения планет за 1 год и запишем в файл:
+#+begin_src java
+        universe.dump("plot.dat", false);
+        for (int i = 0; i < 1*24*365; ++i) { // год
+            universe.recalcCoords(60*60); // час
+            universe.dump("plot.dat", true);
+        }
+    }
+};
+#+end_src
+Метод ~recalcCoords~ $(\Delta t)$ обновляет координаты материальных точек вселенной спустя $\Delta t$.
+
+** ~Universe.java~
+
+Импорт необходимых пакетов и объявление класса Вселенной:
+#+begin_src java
+import java.util.Random;
+import java.io.*;
+import java.lang.Math;
+import java.util.ArrayList;
+
+public class Universe {
+#+end_src
+
+Объявим вспомогательный класс ~Point~, реализующий геометрическую точку.
+#+begin_src java
+    public class Point {
+        private double x;
+        private double y;
+        private double z;
+
+        public Point(double x, double y, double z) {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+
+        public double calcDist(Point p) {
+            return Math.sqrt(Math.pow(this.x - p.x, 2)
+                             + Math.pow(this.y - p.y, 2)
+                             + Math.pow(this.z - p.z, 2));
+        }
+
+        public String toString() {
+            return x + " " + y + " " + z;
+        }
+
+        public double getR() {
+            return Math.sqrt(Math.pow(this.x, 2)
+                             + Math.pow(this.y, 2)
+                             + Math.pow(this.z, 2));
+        }
+
+        public void add(Point p) {
+            this.x += p.x;
+            this.y += p.y;
+            this.z += p.z;
+        }
+
+        public void mult(double m) {
+            this.x *= m;
+            this.y *= m;
+            this.z *= m;
+        }
+    }
+#+end_src
+
+Далее, объявим класс ~Particle~, реализующий частицу:
+#+begin_src java
+    public class Particle {
+        private double m;
+        private Point pos;
+        private Point v;
+#+end_src
+Поля класса: масса, координаты, вектор скорости.
+
+Будем хранить точки всех вселенных в списке ~particles~. Это необходимо для расчета силы гравитационного взаимодействия в случае нескольких Вселенных.
+#+begin_src java
+        private static ArrayList<Particle> particles = new ArrayList<Particle>();
+#+end_src
+
+Объявим конструктор:
+#+begin_src java
+        public Particle(double x, double y, double z, double vx, double vy, double vz, double m) {
+            this.pos = new Point(x, y, z);
+            this.v = new Point(vx, vy, vz);
+            this.m = m;
+            particles.add(this);
+        }
+#+end_src
+
+Функция преобразования к строковому типу:
+#+begin_src java
+        @Override
+        public String toString() {
+            return m + " " + pos + " " + v;
+        }
+#+end_src
+
+Метод для пересчета координат всех точек спустя $\Delta t$:
+#+begin_src java
+        public static void recalcAllCoords(double time) {
+#+end_src
+Считаем вектор равнодействующей силам гравитационного взаимодействия для каждой точки:
+#+begin_src java
+            Point[] forces = new Point[particles.size()];
+            for (int i = 0; i < particles.size(); ++i) {
+                forces[i] = particles.get(i).calcOverallF();
+            }
+#+end_src
+С учетом времени и равнодействующей силы обновляем координаты каждой точки:
+#+begin_src java
+            for (int i = 0; i < particles.size(); ++i) {
+                particles.get(i).recalcCoords(time, forces[i]);
+            }
+        }
+#+end_src
+
+Метод для нахождения силы гравитационного взаимодействия, оказываемой одной точкой на другую:
+#+begin_src java
+        private Point calcF(Particle p) {
+#+end_src
+Гравитационная постоянная: $G = 6,67430*10^{-11} \text{м}^{3}*\text{кг}^{-1}*\text{с}^{-2}$.
+#+begin_src java
+            final double G = 6.67430e-11;
+#+end_src
+Считаем расстояние между точками:
+#+begin_src java
+            double r = this.pos.calcDist(p.pos);
+#+end_src
+И, наконец, модуль силы гравитационного взаимодействия:
+\begin{equation*}
+|F| = G*\frac{m_{1} * m_{2}}{r^{2}}
+\end{equation*}
+#+begin_src java
+            double modF = G * this.m * p.m / (r*r);
+#+end_src
+Теперь можем найти вектор силы.
+Для этого вектор из одной точки в другую, домножим на отношение модуля силы и длины этого вектора:
+\begin{equation*}
+F = \frac{|F|}{|\vec{AB}|}\vec{AB}
+\end{equation*}
+#+begin_src java
+            Point F = new Point(p.pos.x - this.pos.x,
+                                p.pos.y - this.pos.y,
+                                p.pos.z - this.pos.z);
+            F.mult(modF / F.getR());
+            return F;
+        }
+#+end_src
+
+Метод для вычисления вектора равнодействующей силы:
+#+begin_src java
+        private Point calcOverallF() {
+#+end_src
+Тут просто суммируем силы, с которыми точка притягивается к остальным:
+\begin{equation*}
+F_{\text{равнодействущая}} = \sum_{i=1}^{|particles|}{F_{i}}
+\end{equation*}
+Где $F_{i}$ --- сила гравитацонного взаимодействия данной точки и точки $i$.
+#+begin_src java
+            Point F = new Point(0, 0, 0);
+            for (Particle p : particles) {
+                if (p != this) {
+                    F.add(this.calcF(p));
+                }
+            }
+            return F;
+        }
+#+end_src
+
+Метод для пересчета координат точки спустя $\Delta t$, под действием силы $F$:
+#+begin_src java
+        public void recalcCoords(double time, Point F) {
+#+end_src
+\begin{equation*}
+\begin{cases}
+x = x_{0} + v_{x0} \Delta t + \frac{a_{x} \Delta t ^2}{2} \\
+y = y_{0} + v_{y0} \Delta t + \frac{a_{y} \Delta t ^2}{2} \\
+z = z_{0} + v_{z0} \Delta t + \frac{a_{z} \Delta t ^2}{2}
+\end{cases}
+\end{equation*}
+#+begin_src java
+            Point a = F;
+            a.mult(1 / this.m);
+            this.pos.x += v.x * time + a.x * time*time / 2;
+            this.pos.y += v.y * time + a.y * time*time / 2;
+            this.pos.z += v.z * time + a.z * time*time / 2;
+            this.v.x += a.x * time;
+            this.v.y += a.y * time;
+            this.v.z += a.z * time;
+        }
+    };
+#+end_src
+
+Далее объявляем члены класса ~Universe~.
+
+Массив частиц и конструктор:
+#+begin_src java
+    private ArrayList<Particle> particles;
+
+    public Universe() {
+        particles = new ArrayList<Particle>();
+    }
+#+end_src
+
+Метод для добавления частицы во Вселенную:
+#+begin_src java
+    public void add(double x, double y, double z, double vx, double vy, double vz, double m) {
+        particles.add(new Particle(x, y, z, vx, vy, vz, m));
+    }
+#+end_src
+
+Метод для получения количества частиц, принадлежащих Вселенной:
+#+begin_src java
+    public int getCount() {
+        return particles.size();
+    }
+#+end_src
+
+Статический метод для обновления координат всех точек всех Вселенных:
+#+begin_src java
+    public static void recalcCoords(double time) {
+        Particle.recalcAllCoords(time);
+    }
+#+end_src
+
+Метод для вывода текущих координат точек Вселенной в файл.
+Флаг ~append~ выбирает режим записи: дописывать в конец или перезаписать.
+#+begin_src java
+    public void dump(String path, boolean append) {
+        try {
+            FileWriter file = new FileWriter(path, append);
+            for (Particle particle : this.particles) {
+                file.write(particle.pos + " ");
+            }
+            file.write("\n");
+            file.flush();
+        }
+        catch(IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+};
+#+end_src
+** ~universe.plt~
+Скрипт на ~gnuplot~ для 3D визуализации траекторий частиц.
+#+begin_src gnuplot
+#!/usr/bin/env -S gnuplot
+
+set key off
+file='plot.dat'
+stats file nooutput
+splot 'plot.dat' using 1:2:3 with dots dt 2, for [i=4:STATS_columns:3] 'plot.dat' using i:i+1:i+2 with lines ls 1
+pause -1
+#+end_src
+** ~plot.dat~ - пример исходных данных для графика
+#+begin_example
+0.0 0.0 0.0 1.4709829E11 0.0 0.0
+0.11936727519528922 0.0 0.0 1.470982502442213E11 1.08972E8 0.0
+0.47746906704009967 8.842856399831395E-5 0.0 1.4709813097689645E11 2.1794397054849064E8 0.0
+1.0743052405701388 4.421427895138887E-4 0.0 1.470979321980704E11 3.269158527424634E8 0.0
+1.909875525856707 0.001237999658732987 0.0 1.4709765390783307E11 4.3588758767894816E8 0.0
+2.984179518006644 0.002652855929754301 0.0 1.4709729610631927E11 5.448591164550495E8 0.0
+4.29721667716237 0.004863568027833623 0.0 1.4709685879370883E11 6.538303801679827E8 0.0
+5.848986328502027 0.00804699193662818 0.0 1.470963419702265E11 7.628013199151102E8 0.0
+7.639487662239712 0.012379983089440712 0.0 1.4709574563614197E11 8.717718767939777E8 0.0
+9.668719733625807 0.018039396260463417 0.0 1.470950697917699E11 9.807419919023507E8 0.0
+11.936681462947405 0.025202085456021827 0.0 1.4709431443746988E11 1.08971160633825E9 0.0
+14.44337163552884 0.03404490380581874 0.0 1.4709347957364648E11 1.1986806611999884E9 0.0
+17.188788901732295 0.044744703454178296 0.0 1.470925652007492E11 1.3076490975862074E9 0.0
+20.172931776958528 0.05747833545129029 0.0 1.4709157131927252E11 1.4166168565959122E9 0.0
+#+end_example
+** График модели Солнце-Земля
+\begin{figure}
+\input{../2.1/plot.tex}
+\end{figure}
