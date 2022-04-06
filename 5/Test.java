@@ -18,12 +18,8 @@ public class Test {
         } else {
             System.out.println("none");
         }
-        final ArrayList<String> files = test.nameStream("/a/")
-            .map(x -> x.contains(".") ? x : "No extension")
-            .map(x -> x.substring(x.lastIndexOf(".")+1))
-            .collect(Collectors.toCollection(ArrayList::new));
-        files.stream()
-            .distinct()
-            .forEach(x -> System.out.println(x + ": " + Collections.frequency(files, x)));
+        Map<String, List<String>> files = test.nameStream("/a/")
+            .collect(Collectors.groupingBy(x -> x.contains(".") ? (x.substring(x.lastIndexOf(".")+1)) : "No extension"));
+        System.out.println(files);
     }
 }
